@@ -9,18 +9,6 @@
 # Options:
 #   --no-restart: Don't restart any apps or services after running the script.
 #
-# If you want to figure out what default needs changing, do the following:
-#
-#   1. `cd /tmp`
-#   2. Store current defaults in file: `defaults read > before`
-#   3. Make a change to your system.
-#   4. Store new defaults in file: `defaults read > after`
-#   5. Diff the files: `diff before after`
-#
-# @see: http://secrets.blacktree.com/?showapp=com.apple.finder
-# @see: https://github.com/herrbischoff/awesome-macos-command-line
-#
-# @author Jeff Geerling
 
 # Warn that some commands will not be run if the script is not run as root.
 if [[ $EUID -ne 0 ]]; then
