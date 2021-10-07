@@ -37,6 +37,7 @@ bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
 # Aliases.
+alias dock-env='eval $(minikube -p minikube docker-env)'
 alias gs='git status'
 alias gc='git commit'
 alias gp='git pull --rebase'
