@@ -48,6 +48,7 @@ alias pi='ssh 192.168.222.15'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
+# alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
 alias update='brew update && brew outdated && brew upgrade'
 
 # Completions.
