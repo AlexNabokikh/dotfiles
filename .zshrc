@@ -10,7 +10,7 @@ fi
 ZSH_THEME="agnoster"
 
 # Custom $PATH with extra locations.
-export PATH=/usr/local/opt/python@3.10/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
