@@ -6,11 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set ZSH Theme
-ZSH_THEME="agnoster"
-
 # Custom $PATH with extra locations.
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
@@ -95,8 +92,7 @@ knownrm() {
   fi
 }
 
-plugins=(git git-flow brew history kubectl docker)
-
+# Set ZSH Theme
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
