@@ -12,6 +12,11 @@ export PATH=/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
+# Set history settings
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]
 then
