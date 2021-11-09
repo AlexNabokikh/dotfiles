@@ -5,11 +5,38 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+Plugin 'preservim/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'voldikss/vim-floaterm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Airline config
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='deus'
+
+" NERDTree config
+map <F5> :NERDTreeToggle<CR>
+
+" Fzf config
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+
+" GitGutter config
+let g:gitgutterenable = 1
+map <F6> :GitGutterLineHighlightsToggle<CR>
+
+" Floaterm config
+let g:floaterm_keymap_toggle = '<F12>'
 
 " General vim config
 colorscheme codedark            " requires Vundle
