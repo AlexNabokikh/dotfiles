@@ -9,6 +9,8 @@ fi
 # Custom $PATH with extra locations.
 export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
+export GPG_TTY=$TTY
+
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
