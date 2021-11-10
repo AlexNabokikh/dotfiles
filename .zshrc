@@ -50,11 +50,6 @@ bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias dock-env='eval $(minikube -p minikube docker-env)'
-alias gs='git status'
-alias gc='git commit'
-alias gp='git pull --rebase'
-alias gcam='git commit -am'
-alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias aws-okta=". ~/.aws_okta/aws-okta"
 alias k=kubectl
 alias repo='cd $HOME/Documents/repositories'
