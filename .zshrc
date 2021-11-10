@@ -3,7 +3,14 @@
 #
 
 # Custom $PATH with extra locations.
-export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
+kernel_name="$(uname )"
+if [ "${kernel_name}" = "Darwin" ]; then
+    export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
+elif [ "${kernel_name}" = "Linux" ]; then
+    export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+else
+    echo "Unknown kernel: ${kernel_name}"
+fi
 
 # GPG.
 export GPG_TTY=$TTY
