@@ -12,6 +12,9 @@ export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/loc
 # GPG
 export GPG_TTY=$TTY
 
+# Java
+export JAVA_HOME=/usr/local/opt/openjdk@11
+
 # Oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -52,8 +55,8 @@ alias gc='git commit'
 alias gp='git pull --rebase'
 alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias aws-okta=". ~/.aws_okta/aws-okta"
 alias k=kubectl
-alias pi='ssh 192.168.222.15'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
