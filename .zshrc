@@ -7,7 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Custom $PATH with extra locations.
-export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
 
 # GPG
 export GPG_TTY=$TTY
@@ -54,11 +54,10 @@ alias aws-okta=". ~/.aws_okta/aws-okta"
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
-# alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
+alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
 
 # Completions.
 autoload -Uz compinit && compinit
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
