@@ -2,27 +2,23 @@
 # .zshrc
 #
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Custom $PATH with extra locations.
 export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
 
-# GPG
+# GPG.
 export GPG_TTY=$TTY
 
-# Java
+# Java.
 export JAVA_HOME=/usr/local/opt/openjdk@11
 
-# Oh-my-zsh
+# Oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
-# Set history settings
+# Set history settings.
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -99,8 +95,8 @@ knownrm() {
   fi
 }
 
-# Load Oh-my-zsh
+# Load Oh-my-zsh.
 source $ZSH/oh-my-zsh.sh
 
-# Load Powerlevel10k config
+# Load Powerlevel10k config.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
