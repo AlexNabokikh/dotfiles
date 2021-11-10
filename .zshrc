@@ -9,7 +9,12 @@ fi
 # Custom $PATH with extra locations.
 export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
+# GPG
 export GPG_TTY=$TTY
+
+# Oh-my-zsh
+export ZSH="/home/vagrant/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
@@ -36,7 +41,7 @@ else
 fi
 
 # Allow history search via up/down keys.
-source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
@@ -99,7 +104,8 @@ knownrm() {
   fi
 }
 
-# Set ZSH Theme
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Load Oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
+# Load Powerlevel10k config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
