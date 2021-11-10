@@ -29,16 +29,6 @@ then
   source ~/.aliases
 fi
 
-# Set architecture-specific brew share path.
-arch_name="$(uname -m)"
-if [ "${arch_name}" = "x86_64" ]; then
-    share_path="/usr/local/share"
-elif [ "${arch_name}" = "arm64" ]; then
-    share_path="/opt/homebrew/share"
-else
-    echo "Unknown architecture: ${arch_name}"
-fi
-
 # Allow history search via up/down keys.
 source $HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 bindkey "^[[A" history-substring-search-up
