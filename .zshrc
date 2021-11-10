@@ -51,12 +51,10 @@ bindkey "^[[B" history-substring-search-down
 # Aliases.
 alias dock-env='eval $(minikube -p minikube docker-env)'
 alias aws-okta=". ~/.aws_okta/aws-okta"
-alias k=kubectl
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
 # alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
-alias update='brew update && brew outdated && brew upgrade'
 
 # Completions.
 autoload -Uz compinit && compinit
