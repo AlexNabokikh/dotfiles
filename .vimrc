@@ -8,11 +8,13 @@ call vundle#begin()
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
+Plugin 'nvie/vim-flake8'
 Plugin 'preservim/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'voldikss/vim-floaterm'
 
 " All of your Plugins must be added before the following line
@@ -23,6 +25,9 @@ filetype plugin indent on    " required
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
+
+" Python config
+let python_highlight_all=1
 
 " NERDTree config
 map <F5> :NERDTreeToggle<CR>
