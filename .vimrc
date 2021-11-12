@@ -28,11 +28,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
 
 " Python config
-let python_highlight_all=1
+let python_highlight_all = 1
 
 " Terraform config
-let g:terraform_align
-let g:terraform_fmt_on_save
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
 
 " NERDTree config
 map <F5> :NERDTreeToggle<CR>
