@@ -6,6 +6,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'airblade/vim-gitgutter'
+Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'nvie/vim-flake8'
@@ -28,6 +29,10 @@ let g:airline_theme='deus'
 
 " Python config
 let python_highlight_all=1
+
+" Terraform config
+let g:terraform_align
+let g:terraform_fmt_on_save
 
 " NERDTree config
 map <F5> :NERDTreeToggle<CR>
