@@ -23,7 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Enable plugins.
-plugins=(git brew history kubectl history-substring-search tmux)
+plugins=(brew git history history-substring-search kubectl sudo terraform tmux)
 
 # Set history settings.
 HISTFILE=~/.histfile
