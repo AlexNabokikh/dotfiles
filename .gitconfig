@@ -2,6 +2,8 @@
   name = Alexander Nabokikh
   email = alexander.nabokikh@olx.pl
 	signingkey = CDD891A6
+[tag]
+  gpgSign = true
 [core]
   editor = vim
   excludesfile = ~/.gitignore
