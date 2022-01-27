@@ -27,9 +27,15 @@ let g:ale_fixers = {
     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
     \   'python': ['black'],
     \   'terraform': ['terraform'],
+    \   'yaml': ['yamlfix'],
+    \   'yml': ['yamlfix'],
     \}
-let g:ale_linters = {'python': ['flake8']}
-let g:ale_linter_aliases = {'tf': 'terraform'}
+let g:ale_linters = {
+    \   'python': ['flake8'],
+    \   'yaml': ['yamllint'],
+    \   'yml': ['yamllint'],
+    \   'tf': ['terraform'],
+    \}
 let g:ale_python_flake8_options = '--max-line-length=150'
 let b:ale_fix_on_save = 1
 
