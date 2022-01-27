@@ -31,6 +31,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # Set fzf default options
+export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers,changes --line-range :300 {}'"
 
 # Include alias file (if present) containing aliases for ssh, etc.
