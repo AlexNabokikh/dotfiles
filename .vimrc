@@ -8,14 +8,14 @@ call vundle#begin()
 Plugin 'airblade/vim-gitgutter'
 Plugin 'dense-analysis/ale'
 Plugin 'hashivim/vim-terraform'
-Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'voldikss/vim-floaterm'
 
 " All of your Plugins must be added before the following line
@@ -24,10 +24,10 @@ filetype plugin indent on    " required
 
 " ALE
 let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'python': ['black'],
-      \   'terraform': ['terraform'],
-      \}
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'python': ['black'],
+    \   'terraform': ['terraform'],
+    \}
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_linter_aliases = {'tf': 'terraform'}
 let g:ale_python_flake8_options = '--max-line-length=150'
