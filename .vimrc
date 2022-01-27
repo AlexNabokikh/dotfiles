@@ -39,6 +39,7 @@ let g:terraform_fmt_on_save = 1
 map <F5> :NERDTreeToggle<CR>
 
 " Fzf config
+map <F7> :Files<CR>
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
