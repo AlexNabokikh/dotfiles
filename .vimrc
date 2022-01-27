@@ -6,6 +6,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'airblade/vim-gitgutter'
+Plugin 'dense-analysis/ale'
 Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
@@ -22,6 +23,12 @@ Plugin 'voldikss/vim-floaterm'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" ALE
+let b:ale_fixers = ['black', 'gofmt', 'isort', 'terraform']
+let g:ale_python_flake8_options = '--max-line-length=150'
+let g:ale_linter_aliases = {'tf': 'terraform'}
+let b:ale_fix_on_save = 1
 
 " Airline config
 let g:airline_powerline_fonts = 1
