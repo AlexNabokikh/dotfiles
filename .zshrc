@@ -46,8 +46,9 @@ bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
 # Aliases.
+alias aws-okta='. ~/.aws_okta/aws-okta'
 alias dock-env='eval $(minikube -p minikube docker-env)'
-alias aws-okta=". ~/.aws_okta/aws-okta"
+alias fzfv='vim $(fzf)'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
