@@ -22,6 +22,9 @@ export JAVA_HOME=/usr/local/opt/openjdk@11
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Set Bat default theme
+export BAT_THEME="Visual Studio Dark+"
+
 # Enable plugins.
 plugins=(brew git history history-substring-search kubectl sudo terraform tmux)
 
