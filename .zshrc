@@ -5,11 +5,11 @@
 # Custom $PATH with extra locations.
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-    export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
+  export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-    export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 else
-    echo "Unknown kernel: ${kernel_name}"
+  echo "Unknown kernel: ${kernel_name}"
 fi
 
 # GPG.
@@ -26,7 +26,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export BAT_THEME="Visual Studio Dark+"
 
 # Enable plugins.
-plugins=(brew git history history-substring-search kubectl sudo terraform tmux)
+plugins=(brew git history history-substring-search kubectl poetry sudo terraform tmux)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -38,8 +38,7 @@ export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers,changes --line-range :300 {}'"
 
 # Include alias file (if present) containing aliases for ssh, etc.
-if [ -f ~/.aliases ]
-then
+if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
@@ -63,27 +62,27 @@ autoload -Uz compinit && compinit
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
 function gsync() {
-  if [[ ! "$1" ]] ; then
-      echo "You must supply a branch."
-      return 0
+  if [[ ! "$1" ]]; then
+    echo "You must supply a branch."
+    return 0
   fi
 
   BRANCHES=$(git branch --list $1)
-  if [ ! "$BRANCHES" ] ; then
-      echo "Branch $1 does not exist."
-      return 0
+  if [ ! "$BRANCHES" ]; then
+    echo "Branch $1 does not exist."
+    return 0
   fi
 
-  git checkout "$1" && \
-  git pull upstream "$1" && \
-  git push origin "$1"
+  git checkout "$1" &&
+    git pull upstream "$1" &&
+    git push origin "$1"
 }
 
 # Enter a running Docker container.
 function denter() {
-  if [[ ! "$1" ]] ; then
-      echo "You must supply a container ID or name."
-      return 0
+  if [[ ! "$1" ]]; then
+    echo "You must supply a container ID or name."
+    return 0
   fi
 
   docker exec -it $1 sh
@@ -93,8 +92,8 @@ function denter() {
 # Delete a given line number in the known_hosts file.
 knownrm() {
   re='^[0-9]+$'
-  if ! [[ $1 =~ $re ]] ; then
-    echo "error: line number missing" >&2;
+  if ! [[ $1 =~ $re ]]; then
+    echo "error: line number missing" >&2
   else
     sed -i '' "$1d" ~/.ssh/known_hosts
   fi
