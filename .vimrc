@@ -7,6 +7,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'airblade/vim-gitgutter'
 Plugin 'dense-analysis/ale'
+Plugin 'gelguy/wilder.nvim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -65,6 +66,15 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 " Floaterm config
 let g:floaterm_keymap_toggle = '<F12>'
+
+" Wilder config
+call wilder#setup({'modes': [':', '/', '?']})
+call wilder#set_option('renderer', wilder#wildmenu_renderer(
+      \ wilder#wildmenu_airline_theme({
+      \   'highlights': {},
+      \   'highlighter': wilder#basic_highlighter(),
+      \   'separator': ' · ',
+      \ })))
 
 " Toggle Paste
 function! TogglePaste()
