@@ -6,6 +6,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'airblade/vim-gitgutter'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'dense-analysis/ale'
 Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf'
@@ -29,12 +30,14 @@ let g:ale_fixers = {
     \   'terraform': ['terraform'],
     \   'yaml': ['yamlfix'],
     \   'yml': ['yamlfix'],
+    \   'sh': ['shfmt'],
     \}
 let g:ale_linters = {
     \   'python': ['flake8'],
     \   'yaml': ['yamllint'],
     \   'yml': ['yamllint'],
     \   'tf': ['terraform'],
+    \   'sh': ['shellcheck'],
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
 let b:ale_fix_on_save = 1
@@ -53,6 +56,7 @@ let g:terraform_fmt_on_save = 1
 
 " NERDTree config
 map <F5> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " GitGutter config
 let g:gitgutterenable = 1
