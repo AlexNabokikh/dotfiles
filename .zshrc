@@ -7,7 +7,7 @@ kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
   export PATH=/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:/$HOME/go/bin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
