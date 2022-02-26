@@ -49,6 +49,7 @@ bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 alias dock-env='eval $(minikube -p minikube docker-env)'
 alias fzfv='vim $(fzf)'
 alias repo='cd $HOME/Documents/repositories'
