@@ -17,6 +17,7 @@ Plugin 'tomasiser/vim-code-dark'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-python/python-syntax'
 Plugin 'voldikss/vim-floaterm'
 
 " All of your Plugins must be added before the following line
@@ -48,7 +49,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
 
 " Python config
-let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 " Terraform config
 let g:terraform_align = 1
