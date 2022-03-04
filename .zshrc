@@ -109,3 +109,6 @@ source $ZSH/oh-my-zsh.sh
 # Load pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# Load fzf key bindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
