@@ -6,6 +6,7 @@
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
   export PATH=/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:/$HOME/go/bin:$PATH
+  alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 elif [ "${kernel_name}" = "Linux" ]; then
   export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 else
@@ -49,7 +50,6 @@ bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
-alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 alias dock-env='eval $(minikube -p minikube docker-env)'
 alias fzfv='vim $(fzf)'
 alias repo='cd $HOME/Documents/repositories'
