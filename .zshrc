@@ -6,9 +6,8 @@
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
   export PATH=/opt/homebrew/bin:$HOME/.local:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:/$HOME/go/bin:$PATH
-  alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
@@ -105,10 +104,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Load Powerlevel10k config.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Load pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-# Load fzf key bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
