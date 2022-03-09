@@ -22,8 +22,9 @@
 [push]
   default = simple
 [merge]
-  tool = kdiff3
+  tool = ydiff
 [difftool]
+  tool = ydiff
   prompt = false
 [alias]
   c = commit
