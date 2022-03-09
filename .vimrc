@@ -41,7 +41,7 @@ let g:ale_linters = {
     \   'sh': ['shellcheck'],
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
-let b:ale_fix_on_save = 1
+let b:ale_fix_on_save = 0
 
 " Airline config
 let g:airline_powerline_fonts = 1
