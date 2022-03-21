@@ -1,7 +1,7 @@
 [user]
   name = Alexander Nabokikh
   email = alexander.nabokikh@olx.pl
-	signingkey = CDD891A6
+  signingkey = CDD891A6
 [tag]
   gpgSign = true
 [core]
@@ -35,4 +35,7 @@
   dc = diff --cached
   l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
 [pull]
-	rebase = true
+  rebase = true
+[commit]
+  gpgSign = true
+
