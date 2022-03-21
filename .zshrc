@@ -27,7 +27,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export BAT_THEME="Visual Studio Dark+"
 
 # Enable plugins.
-plugins=(brew git history history-substring-search kubectl poetry sudo terraform tmux)
+plugins=(brew git helm history history-substring-search kubectl pip poetry sudo terraform tmux vundle)
 
 # Set history settings.
 HISTFILE=~/.histfile
