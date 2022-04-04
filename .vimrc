@@ -18,7 +18,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-python/python-syntax'
-Plugin 'voldikss/vim-floaterm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,6 +41,7 @@ let g:ale_linters = {
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
 let b:ale_fix_on_save = 0
+map <F12> :ALEFix<CR>
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -67,9 +67,6 @@ map <F6> :GitGutterLineHighlightsToggle<CR>
 map <F7> :Files<CR>
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
-
-" Floaterm config
-let g:floaterm_keymap_toggle = '<F12>'
 
 " Toggle Paste
 function! TogglePaste()
