@@ -18,6 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-python/python-syntax'
+Plugin 'yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,6 +68,9 @@ map <F6> :GitGutterLineHighlightsToggle<CR>
 map <F7> :Files<CR>
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+
+" Indent line
+let g:indentLine_char = '|'
 
 " Toggle Paste
 function! TogglePaste()
