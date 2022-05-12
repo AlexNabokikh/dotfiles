@@ -1,36 +1,35 @@
 [user]
-  name = Alexander Nabokikh
-  email = alexander.nabokikh@olx.pl
-  signingkey = CDD891A6
+name = Alexander Nabokikh
+email = alexander.nabokikh@olx.pl
+signingkey = CDD891A6
 [tag]
-  gpgSign = true
+gpgSign = true
 [core]
-  pager = delta
+pager = delta
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+branch = auto
+diff = auto
+interactive = auto
+status = auto
 [interactive]
-  diffFilter = delta --color-only
+diffFilter = delta --color-only
 [init]
-  defaultBranch = master
+defaultBranch = main
 [delta]
-  side-by-side = true
-  navigate = true
-  light = false
+side-by-side = true
+navigate = true
+light = false
 [diff]
-  colorMoved = default
+colorMoved = default
 [web]
-  browser = firefox
+browser = firefox
 [credential]
-  helper = osxkeychain
+helper = osxkeychain
 [push]
-  default = simple
+default = simple
 [merge]
-  conflictstyle = diff3
+conflictstyle = diff3
 [pull]
-  rebase = true
+rebase = true
 [commit]
-  gpgSign = true
-
+gpgSign = true
