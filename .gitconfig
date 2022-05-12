@@ -5,16 +5,22 @@
 [tag]
   gpgSign = true
 [core]
-  editor = vim
-  excludesfile = ~/.gitignore
-  autocrlf = input
+  pager = delta
 [color]
   branch = auto
   diff = auto
   interactive = auto
   status = auto
+[interactive]
+  diffFilter = delta --color-only
 [init]
   defaultBranch = master
+[delta]
+  side-by-side = true
+  navigate = true
+  light = false
+[diff]
+  colorMoved = default
 [web]
   browser = firefox
 [credential]
@@ -22,18 +28,7 @@
 [push]
   default = simple
 [merge]
-  tool = ydiff
-[difftool]
-  tool = ydiff
-  prompt = false
-[alias]
-  c = commit
-  ca = commit -a
-  cm = commit -m
-  cam = commit -am
-  d = diff
-  dc = diff --cached
-  l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
+  conflictstyle = diff3
 [pull]
   rebase = true
 [commit]
