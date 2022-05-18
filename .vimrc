@@ -27,14 +27,14 @@ filetype plugin indent on    " required
 " ALE
 let g:ale_fixers = {
     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'python': ['black'],
+    \   'python': ['black', 'isort'],
     \   'terraform': ['terraform'],
     \   'yaml': ['yamlfix'],
     \   'yml': ['yamlfix'],
     \   'sh': ['shfmt'],
     \}
 let g:ale_linters = {
-    \   'python': ['flake8'],
+    \   'python': ['flake8', 'pyright'],
     \   'yaml': ['yamllint'],
     \   'yml': ['yamllint'],
     \   'tf': ['terraform'],
