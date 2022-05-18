@@ -121,6 +121,7 @@ set hlsearch            " highlighted search results
 set showmatch           " show matching bracket
 
 " other
+set mouse=a             " enable mouse scroll wheel
 set guioptions=aAace    " don't show scrollbar in MacVim
 
 " clipboard
