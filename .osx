@@ -65,7 +65,7 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 ###############################################################################
 
 # Disable mouse acceleration
-defaults write .GlobalPreferences com.apple.mouse.scaling -1
+defaults write .GlobalPreferences com.apple.mouse.scaling -int -1
 
 # Trackpad: Haptic feedback (light, silent clicking)
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
@@ -84,6 +84,9 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
 defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
 defaults write com.apple.AppleMultitouchTrackpad TrackpadScroll -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadHorizScroll -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll -int 1
 
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -192,9 +195,6 @@ defaults write com.apple.dock expose-animation-duration -float 0.15
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Enable the 'reduce transparency' option. Save GPU cycles.
-defaults write com.apple.universalaccess reduceTransparency -bool true
-
 # Hot corners
 # Possible values:
 #  0: no-op
@@ -235,20 +235,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-
-###############################################################################
-# Spotlight                                                                   #
-###############################################################################
-
-if [[ "$RUN_AS_ROOT" = true ]]; then
-  # Disable Spotlight indexing for any volume that gets mounted and has not yet
-  # been indexed before.
-  # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-  sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
-  # Restart spotlight
-  killall mds >/dev/null 2>&1
-fi
 
 ###############################################################################
 # Activity Monitor                                                            #
