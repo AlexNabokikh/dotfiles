@@ -118,6 +118,7 @@ set visualbell          " but leave on a visual bell
 
 " search
 set hlsearch            " highlighted search results
+set ignorecase          " enable case ignore search
 set showmatch           " show matching bracket
 
 " other
