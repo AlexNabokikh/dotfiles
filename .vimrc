@@ -11,6 +11,8 @@ Plugin 'dense-analysis/ale'
 Plugin 'hashivim/vim-terraform'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'mg979/vim-visual-multi'
 Plugin 'preservim/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tomasiser/vim-code-dark'
@@ -71,6 +73,9 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 " Indent line
 let g:indentLine_char = '|'
+
+" Enable rainbow brackets
+let g:rainbow_active = 1
 
 " Toggle Paste
 function! TogglePaste()
