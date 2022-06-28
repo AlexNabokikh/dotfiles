@@ -46,7 +46,9 @@ let g:ale_linters = {
     \   'yml': ['yamllint'],
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
+let g:ale_javascript_prettier_options = '--no-bracket-spacing'
 let b:ale_fix_on_save = 0
+
 map <F12> :ALEFix<CR>
 
 " Airline config
