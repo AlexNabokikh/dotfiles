@@ -36,11 +36,13 @@ let g:ale_fixers = {
     \   'sh': ['shfmt'],
     \}
 let g:ale_linters = {
+    \   'dockerfile': ['dockerfile_lint', 'hadolint'],
+    \   'markdown': ['markdownlint'],
     \   'python': ['flake8', 'pyright'],
+    \   'sh': ['shellcheck'],
+    \   'tf': ['terraform', 'tflint'],
     \   'yaml': ['yamllint'],
     \   'yml': ['yamllint'],
-    \   'tf': ['terraform'],
-    \   'sh': ['shellcheck'],
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
 let b:ale_fix_on_save = 0
