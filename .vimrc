@@ -29,11 +29,12 @@ filetype plugin indent on    " required
 " ALE
 let g:ale_fixers = {
     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'markdown': ['prettier'],
     \   'python': ['black', 'isort'],
-    \   'terraform': ['terraform'],
-    \   'yaml': ['yamlfix'],
-    \   'yml': ['yamlfix'],
     \   'sh': ['shfmt'],
+    \   'terraform': ['terraform'],
+    \   'yaml': ['prettier'],
+    \   'yml': ['prettier'],
     \}
 let g:ale_linters = {
     \   'dockerfile': ['dockerfile_lint', 'hadolint'],
