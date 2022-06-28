@@ -28,22 +28,26 @@ filetype plugin indent on    " required
 
 " ALE
 let g:ale_fixers = {
-    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'markdown': ['prettier'],
-    \   'python': ['black', 'isort'],
-    \   'sh': ['shfmt'],
-    \   'terraform': ['terraform'],
-    \   'yaml': ['prettier'],
-    \   'yml': ['prettier'],
+    \ '*':          ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'css':        ['prettier'],
+    \ 'dockerfile': ['hadolint'],
+    \ 'html':       ['prettier'],
+    \ 'javascript': ['prettier'],
+    \ 'markdown':   ['prettier'],
+    \ 'python':     ['black', 'isort'],
+    \ 'sh':         ['shfmt'],
+    \ 'terraform':  ['terraform'],
+    \ 'yaml':       ['prettier'],
+    \ 'yml':        ['prettier'],
     \}
 let g:ale_linters = {
-    \   'dockerfile': ['dockerfile_lint', 'hadolint'],
-    \   'markdown': ['markdownlint'],
-    \   'python': ['flake8', 'pyright'],
-    \   'sh': ['shellcheck'],
-    \   'tf': ['terraform', 'tflint'],
-    \   'yaml': ['yamllint'],
-    \   'yml': ['yamllint'],
+    \ 'dockerfile': ['hadolint'],
+    \ 'markdown':   ['markdownlint'],
+    \ 'python':     ['flake8', 'pyright'],
+    \ 'sh':         ['shellcheck'],
+    \ 'tf':         ['terraform', 'tflint'],
+    \ 'yaml':       ['yamllint'],
+    \ 'yml':        ['yamllint'],
     \}
 let g:ale_python_flake8_options = '--max-line-length=150'
 let g:ale_javascript_prettier_options = '--no-bracket-spacing'
