@@ -110,28 +110,28 @@ map <leader>p :call TogglePaste()<cr>
 " General vim config
 colorscheme codedark            " requires Vundle
 syntax on                       " enable syntax highlighting
-set backspace=indent,eol,start  " more powerful backspacing
-set cursorline                  " highlight the current line
-set cursorcolumn                " highlight the current column
-set nobackup                    " don't create pointless backup files; Use VCS instead
-set autoread                    " watch for file changes
-set number                      " show line numbers
-set showcmd                     " show selection metadata
-set showmode                    " show INSERT, VISUAL, etc. mode
-set showmatch                   " show matching brackets
 set autoindent smartindent      " auto/smart indent
-set smarttab                    " better backspace and tab functionality
+set autoread                    " watch for file changes
+set backspace=indent,eol,start  " more powerful backspacing
+set cursorcolumn                " highlight the current column
+set cursorline                  " highlight the current line
+set nobackup                    " don't create pointless backup files; Use VCS instead
+set relativenumber              " show line numbers
 set scrolloff=5                 " show at least 5 lines above/below
-filetype on                     " enable filetype detection
+set showcmd                     " show selection metadata
+set showmatch                   " show matching brackets
+set showmode                    " show INSERT, VISUAL, etc. mode
+set smarttab                    " better backspace and tab functionality
 filetype indent on              " enable filetype-specific indenting
+filetype on                     " enable filetype detection
 filetype plugin on              " enable filetype-specific plugins
 
 " tabs and indenting
 set autoindent          " auto indenting
-set smartindent         " smart indenting
 set expandtab           " spaces instead of tabs
-set tabstop=2           " 2 spaces for tabs
 set shiftwidth=2        " 2 spaces for indentation
+set smartindent         " smart indenting
+set tabstop=2           " 2 spaces for tabs
 
 " bells
 set noerrorbells        " turn off audio bell
@@ -143,8 +143,8 @@ set ignorecase          " enable case ignore search
 set showmatch           " show matching bracket
 
 " other
-set mouse=a             " enable mouse scroll wheel
 set guioptions=aAace    " don't show scrollbar in MacVim
+set mouse=a             " enable mouse scroll wheel
 
 " clipboard
 set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
