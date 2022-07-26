@@ -148,3 +148,7 @@ set mouse=a             " enable mouse scroll wheel
 
 " clipboard
 set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
+
+" buffers switch
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
