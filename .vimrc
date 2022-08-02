@@ -116,7 +116,7 @@ set backspace=indent,eol,start  " more powerful backspacing
 set cursorcolumn                " highlight the current column
 set cursorline                  " highlight the current line
 set nobackup                    " don't create pointless backup files; Use VCS instead
-set relativenumber              " show line numbers
+set number relativenumber       " show line numbers
 set scrolloff=5                 " show at least 5 lines above/below
 set showcmd                     " show selection metadata
 set showmatch                   " show matching brackets
