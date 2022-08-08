@@ -83,6 +83,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 " Indent line
 let g:indentLine_char = '|'
+let g:indentLine_setConceal = 0
 
 " Enable rainbow brackets
 let g:rainbow_active = 1
