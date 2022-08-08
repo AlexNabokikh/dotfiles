@@ -33,6 +33,7 @@ let g:ale_fixers = {
     \ 'dockerfile': ['hadolint'],
     \ 'html':       ['prettier'],
     \ 'javascript': ['prettier'],
+    \ 'json':       ['prettier'],
     \ 'markdown':   ['prettier'],
     \ 'python':     ['black', 'isort'],
     \ 'sh':         ['shfmt'],
