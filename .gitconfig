@@ -1,7 +1,7 @@
 [user]
 name = Alexander Nabokikh
 email = alexander.nabokikh@olx.pl
-signingkey = CDD891A6
+signingkey = CD172433
 [tag]
 gpgSign = true
 [core]
