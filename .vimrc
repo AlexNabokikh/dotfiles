@@ -152,6 +152,14 @@ set mouse=a             " enable mouse scroll wheel
 " clipboard
 set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
 
+" Coursor mode Settings
+let &t_SI.="\e[5 q"     " SI = INSERT mode
+let &t_SR.="\e[4 q"     " SR = REPLACE mode
+let &t_EI.="\e[1 q"     " EI = NORMAL mode (ELSE)
+set ttimeout            " Slow mode change fix
+set ttimeoutlen=1
+set ttyfast
+
 " buffers switch
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>

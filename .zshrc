@@ -26,6 +26,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set Bat default theme
 export BAT_THEME="Visual Studio Dark+"
 
+# VI mode
+KEYTIMEOUT=1
+bindkey -M vicmd 'V' edit-command-line
+
 # Enable plugins.
 plugins=(brew docker git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode)
 
