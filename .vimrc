@@ -1,31 +1,25 @@
-" Vundle config
+" Vim-Plug config
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
+Plug 'hashivim/vim-terraform'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'luochen1990/rainbow'
+Plug 'mg979/vim-visual-multi'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-python/python-syntax'
+Plug 'yggdroot/indentLine'
 
-" let Vundle manage Vundle, required
-Plugin 'airblade/vim-gitgutter'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'dense-analysis/ale'
-Plugin 'hashivim/vim-terraform'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'mg979/vim-visual-multi'
-Plugin 'preservim/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-python/python-syntax'
-Plugin 'yggdroot/indentLine'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " ALE
 let g:ale_fixers = {
