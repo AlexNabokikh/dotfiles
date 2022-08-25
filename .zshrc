@@ -40,7 +40,7 @@ SAVEHIST=1000
 
 # Set fzf default options
 export FZF_DEFAULT_COMMAND='find .'
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid,numbers,changes --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="--preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
 
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]; then
