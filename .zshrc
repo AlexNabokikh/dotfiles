@@ -40,7 +40,19 @@ SAVEHIST=1000
 
 # Set fzf default options
 export FZF_DEFAULT_COMMAND='find .'
-export FZF_DEFAULT_OPTS="--preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
+export FZF_DEFAULT_OPTS="
+--layout=reverse
+--info=inline
+--multi
+--preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
+--prompt='∼ ' --pointer='▶' --marker='✓'
+--bind '?:toggle-preview'
+--bind 'ctrl-a:select-all'
+--bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+--bind 'ctrl-v:execute(code {+})'
+"
 
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]; then
@@ -55,7 +67,6 @@ bindkey "^[[B" history-substring-search-down
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
 alias dock-env='eval $(minikube -p minikube docker-env)'
-alias fzfv='vim $(fzf)'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
