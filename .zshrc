@@ -31,7 +31,7 @@ KEYTIMEOUT=1
 bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
-plugins=(brew docker git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode)
+plugins=(brew docker git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -75,7 +75,7 @@ alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUB
 # Completions.
 autoload -Uz compinit && compinit
 
-# Git upstream branch syncer.
+# Functions
 # Usage: gsync master (checks out master, pull upstream, push origin).
 function gsync() {
   if [[ ! "$1" ]]; then
@@ -94,15 +94,39 @@ function gsync() {
     git push origin "$1"
 }
 
-# Enter a running Docker container.
-function denter() {
-  if [[ ! "$1" ]]; then
-    echo "You must supply a container ID or name."
-    return 0
+# find-in-file - usage: fif <SEARCH_TERM>
+fif() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Need a string to search for!"
+    return 1
   fi
 
-  docker exec -it $1 sh
-  return 0
+  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# Docker functions
+# Select a docker container to start and attach to
+function da() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+
+# Select a running docker container to stop
+function ds() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
+
+# Select a docker container to remove
+function drm() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker rm "$cid"
 }
 
 # Delete a given line number in the known_hosts file.
