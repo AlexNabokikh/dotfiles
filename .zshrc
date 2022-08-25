@@ -153,4 +153,4 @@ eval "$(pyenv virtualenv-init -)"
 
 # Load fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey "ç" fzf-cd-widget
+bindkey "ć" fzf-cd-widget
