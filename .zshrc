@@ -44,6 +44,7 @@ export FZF_DEFAULT_OPTS="
 --layout=reverse
 --info=inline
 --multi
+--preview-window=:hidden
 --preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
 --prompt='∼ ' --pointer='▶' --marker='✓'
