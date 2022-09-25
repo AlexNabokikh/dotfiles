@@ -5,7 +5,7 @@
 # Custom $PATH with extra locations.
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:/$HOME/go/bin:$PATH
+  export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$HOME/go/bin:$PATH
   alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 elif [ "${kernel_name}" = "Linux" ]; then
   export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
@@ -154,3 +154,6 @@ eval "$(pyenv virtualenv-init -)"
 # Load fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ć" fzf-cd-widget
+
+# Prevent duplicates of PATH variables
+typeset -U PATH
