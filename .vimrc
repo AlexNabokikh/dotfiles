@@ -45,7 +45,6 @@ let g:ale_linters = {
     \ 'yaml':       ['yamllint'],
     \ 'yml':        ['yamllint'],
     \}
-let g:ale_python_flake8_options = '--max-line-length=150'
 let g:ale_javascript_prettier_options = '--no-bracket-spacing'
 let b:ale_fix_on_save = 0
 
@@ -57,11 +56,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
 
 " Python config
+let g:ale_python_flake8_options = '--max-line-length=150'
 let g:python_highlight_all = 1
 
 " Terraform config
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
+
+" YAML config
+let g:ale_yaml_yamllint_options = '-d "{rules: {document-start: {present: false}, line-length: {max: 150}}}"'
 
 " NERDTree config
 map <F5> :NERDTreeToggle<CR>
