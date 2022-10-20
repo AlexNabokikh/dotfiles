@@ -26,6 +26,7 @@ let g:ale_fixers = {
     \ '*':          ['remove_trailing_lines', 'trim_whitespace'],
     \ 'css':        ['prettier'],
     \ 'dockerfile': ['hadolint'],
+    \ 'go':         ['gofmt'],
     \ 'html':       ['prettier'],
     \ 'javascript': ['prettier'],
     \ 'json':       ['prettier'],
@@ -38,6 +39,7 @@ let g:ale_fixers = {
     \}
 let g:ale_linters = {
     \ 'dockerfile': ['hadolint'],
+    \ 'go':         ['gofmt'],
     \ 'markdown':   ['markdownlint'],
     \ 'python':     ['flake8', 'pyright'],
     \ 'sh':         ['shellcheck'],
