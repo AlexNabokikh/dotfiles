@@ -9,7 +9,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
-# Plug 'mg979/vim-visual-multi'
+" Plug 'mg979/vim-visual-multi'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tomasiser/vim-code-dark'
@@ -90,11 +90,11 @@ let g:markdown_syntax_conceal=0
 let g:rainbow_active = 1
 
 " Vim visual multi
-# let g:VM_maps = {}
-# let g:VM_maps["Add Cursor Down"] = '<C-j>'
-# let g:VM_maps["Add Cursor Up"] = '<C-k>'
-# let g:VM_maps["Select l"] = '<C-l>'
-# let g:VM_maps["Select h"] = '<C-h>'
+" let g:VM_maps = {}
+" let g:VM_maps["Add Cursor Down"] = '<C-j>'
+" let g:VM_maps["Add Cursor Up"] = '<C-k>'
+" let g:VM_maps["Select l"] = '<C-l>'
+" let g:VM_maps["Select h"] = '<C-h>'
 
 " Toggle Paste
 function! TogglePaste()
