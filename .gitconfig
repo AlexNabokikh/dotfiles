@@ -19,6 +19,7 @@ defaultBranch = main
 side-by-side = true
 navigate = true
 light = false
+width = 280
 [diff]
 colorMoved = default
 [web]

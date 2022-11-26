@@ -6,7 +6,7 @@
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
   export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$HOME/go/bin:$PATH
-  alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
+  alias brew='env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew'
 elif [ "${kernel_name}" = "Linux" ]; then
   export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
 else
@@ -21,21 +21,25 @@ export JAVA_HOME=/usr/local/opt/openjdk@11
 
 # Oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
+# shellcheck disable=SC2034
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set Bat default theme
 export BAT_THEME="Visual Studio Dark+"
 
 # VI mode
+# shellcheck disable=SC2034
 KEYTIMEOUT=1
 bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
-plugins=(brew docker git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
+# shellcheck disable=SC2034
+plugins=(brew docker golang git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
 
 # Set history settings.
 HISTFILE=~/.histfile
 HISTSIZE=1000
+# shellcheck disable=SC2034
 SAVEHIST=1000
 
 # Set fzf default options
@@ -47,7 +51,7 @@ export FZF_DEFAULT_OPTS="
 --preview-window=:hidden
 --preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'
---prompt='∼ ' --pointer='▶' --marker='✓'
+--prompt='~ ' --pointer='▶' --marker='✓'
 --bind '?:toggle-preview'
 --bind 'ctrl-a:select-all'
 --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
@@ -55,13 +59,20 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-v:execute(code {+})'
 "
 
+# Set forgit options
+export FORGIT_FZF_DEFAULT_OPTS="
+--preview-window=bottom:99%
+"
+
 # Include alias file (if present) containing aliases for ssh, etc.
+# shellcheck disable=SC1090
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
 # Allow history search via up/down keys.
-source $HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+# shellcheck disable=SC1091
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
@@ -84,7 +95,7 @@ function gsync() {
     return 0
   fi
 
-  BRANCHES=$(git branch --list $1)
+  BRANCHES=$(git branch --list "$1")
   if [ ! "$BRANCHES" ]; then
     echo "Branch $1 does not exist."
     return 0
@@ -102,7 +113,7 @@ fif() {
     return 1
   fi
 
-  rg --hidden --glob '!.git' --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+  rg --hidden --glob '!.git' --files-with-matches --no-messages "$1" | fzf --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
 # Docker functions
@@ -141,9 +152,11 @@ knownrm() {
 }
 
 # Load Oh-my-zsh.
-source $ZSH/oh-my-zsh.sh
+# shellcheck disable=SC1091
+source "$ZSH/oh-my-zsh.sh"
 
 # Load Powerlevel10k config.
+# shellcheck disable=SC1090
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load pyenv
@@ -152,6 +165,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Load fzf key bindings
+# shellcheck disable=SC1090
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ć" fzf-cd-widget
 
