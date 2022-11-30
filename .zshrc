@@ -3,9 +3,10 @@
 #
 
 # Custom $PATH with extra locations.
+export GOPATH=$HOME/go
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$HOME/go/bin:$PATH
+  export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$GOPATH/bin:$PATH
   alias brew='env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew'
 elif [ "${kernel_name}" = "Linux" ]; then
   export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
