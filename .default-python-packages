@@ -1,0 +1,13 @@
+ansible
+ansible-lint
+awscli
+black
+flake8
+ipython
+isort
+poetry
+pre-commit
+pylint
+pyright
+yamlfix
+yamllint

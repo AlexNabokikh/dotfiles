@@ -6,10 +6,9 @@
 export GOPATH=$HOME/go
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=$HOME/.pyenv/bin:/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$GOPATH/bin:$PATH
-  alias brew='env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew'
+  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$GOPATH/bin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.pyenv/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
@@ -35,7 +34,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(brew docker golang git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
+plugins=(asdf brew docker golang git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -160,12 +159,6 @@ source "$ZSH/oh-my-zsh.sh"
 # shellcheck disable=SC1090
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load pyenv
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# Load fzf key bindings
 # shellcheck disable=SC1090
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ć" fzf-cd-widget
