@@ -1,6 +1,5 @@
 ansible
 ansible-lint
-awscli
 black
 flake8
 ipython
