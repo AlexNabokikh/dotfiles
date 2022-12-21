@@ -4,14 +4,20 @@
 
 # Custom $PATH with extra locations.
 export GOPATH=$HOME/go
+export PYENV_ROOT="$HOME/.pyenv"
+export KREW_ROOT="$HOME/.krew"
+
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$GOPATH/bin:$PATH
+  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$PYENV_ROOT/bin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:${HOME}/.krew/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$PYENV_ROOT/bin:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
+
+# Load pyenv
+eval "$(pyenv init --path)"
 
 # GPG.
 export GPG_TTY=$TTY
@@ -42,7 +48,7 @@ HISTSIZE=1000
 # shellcheck disable=SC2034
 SAVEHIST=1000
 
-# Set fzf default options
+# Set fzf options
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS="
 --layout=reverse
@@ -59,17 +65,6 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-v:execute(code {+})'
 "
 
-# Set forgit options
-export FORGIT_FZF_DEFAULT_OPTS="
---preview-window=bottom:99%
-"
-
-# Include alias file (if present) containing aliases for ssh, etc.
-# shellcheck disable=SC1090
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
-
 # Allow history search via up/down keys.
 # shellcheck disable=SC1091
 source "$HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
@@ -78,7 +73,6 @@ bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
-alias dock-env='eval $(minikube -p minikube docker-env)'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
