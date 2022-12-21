@@ -40,7 +40,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(asdf brew docker golang git helm history history-substring-search kubectl pip poetry sudo terraform tmux vi-mode z)
+plugins=(asdf brew docker golang git helm history history-substring-search kubectl pip pyenv poetry sudo terraform tmux vi-mode z)
 
 # Set history settings.
 HISTFILE=~/.histfile
