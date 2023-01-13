@@ -1,6 +1,5 @@
-#
-# .zshrc
-#
+# Enable word splitting
+setopt shwordsplit
 
 # Custom $PATH with extra locations.
 export GOPATH=$HOME/go
@@ -33,6 +32,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set Bat default theme
 export BAT_THEME="Visual Studio Dark+"
+
+# Kubectl
+export dry='–dry-run=client -oyaml'
 
 # VI mode
 # shellcheck disable=SC2034
