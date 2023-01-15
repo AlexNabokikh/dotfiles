@@ -34,7 +34,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export BAT_THEME="Visual Studio Dark+"
 
 # Kubectl
-export dry='-–dry-run=client -oyaml'
+# export dry='-–dry-run=client -oyaml'
+export dry='--dry-run=client --output=yaml'
 
 # VI mode
 # shellcheck disable=SC2034
