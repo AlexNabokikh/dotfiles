@@ -69,6 +69,7 @@ linters-settings:
 linters:
   enable-all: true
   disable:
+    - forbidigo
     - goerr113
     - varnamelen
     - wsl
