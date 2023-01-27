@@ -69,7 +69,20 @@ linters-settings:
 linters:
   enable-all: true
   disable:
+    - deadcode
+    - exhaustivestruct
     - forbidigo
     - goerr113
+    - golint
+    - ifshort
+    - interfacer
+    - maligned
+    - nosnakecase
+    - rowserrcheck
+    - scopelint
+    - sqlclosecheck
+    - structcheck
+    - varcheck
     - varnamelen
+    - wastedassign
     - wsl
