@@ -22,6 +22,9 @@ Plug 'yggdroot/indentLine'
 
 call plug#end()
 
+" Remap Leader-Key
+nmap <Space> <Leader>
+
 " ALE
 let g:ale_fixers = {
     \ '*':          ['remove_trailing_lines', 'trim_whitespace'],
