@@ -82,6 +82,7 @@ linters:
     - scopelint
     - sqlclosecheck
     - structcheck
+    - tparallel
     - varcheck
     - varnamelen
     - wastedassign
