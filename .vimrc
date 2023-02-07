@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
+Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
