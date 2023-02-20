@@ -71,6 +71,7 @@ linters:
   disable:
     - exhaustivestruct
     - forbidigo
+    - gochecknoinits
     - goerr113
     - golint
     - ifshort
