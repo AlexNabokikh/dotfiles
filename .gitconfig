@@ -16,7 +16,6 @@ diffFilter = delta --color-only
 [init]
 defaultBranch = main
 [delta]
-side-by-side = true
 navigate = true
 light = false
 width = 280
