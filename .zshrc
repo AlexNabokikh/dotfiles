@@ -80,6 +80,7 @@ bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
+alias lg='lazygit'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
