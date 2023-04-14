@@ -60,7 +60,7 @@ map <F12> :ALEFix<CR>
 " Airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='deus'
+let g:airline_theme='bubblegum'
 
 " Python config
 let g:ale_python_flake8_options = '--max-line-length=150'
