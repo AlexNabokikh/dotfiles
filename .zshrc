@@ -69,6 +69,9 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-v:execute(code {+})'
 "
 
+# Set lazygit config location
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Allow history search via up/down keys.
 # shellcheck disable=SC1091
 source "$HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
