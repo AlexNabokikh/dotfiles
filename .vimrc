@@ -2,6 +2,7 @@
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
@@ -11,7 +12,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
-" Plug 'mg979/vim-visual-multi'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tomasiser/vim-code-dark'
@@ -94,13 +94,6 @@ let g:markdown_syntax_conceal=0
 " Enable rainbow brackets
 let g:rainbow_active = 1
 
-" Vim visual multi
-" let g:VM_maps = {}
-" let g:VM_maps["Add Cursor Down"] = '<C-j>'
-" let g:VM_maps["Add Cursor Up"] = '<C-k>'
-" let g:VM_maps["Select l"] = '<C-l>'
-" let g:VM_maps["Select h"] = '<C-h>'
-
 " Toggle Paste
 function! TogglePaste()
     if(&paste == 0)
@@ -116,24 +109,25 @@ map <leader>p :call TogglePaste()<cr>
 
 
 " General vim config
-colorscheme codedark            " requires Vundle
-syntax on                       " enable syntax highlighting
-set autoindent smartindent      " auto/smart indent
-set autoread                    " watch for file changes
-set backspace=indent,eol,start  " more powerful backspacing
-set cursorcolumn                " highlight the current column
-set cursorline                  " highlight the current line
-set nobackup                    " don't create pointless backup files; Use VCS instead
-set noswapfile                  " don't create swap files
-set number relativenumber       " show line numbers
-set scrolloff=5                 " show at least 5 lines above/below
-set showcmd                     " show selection metadata
-set showmatch                   " show matching brackets
-set showmode                    " show INSERT, VISUAL, etc. mode
-set smarttab                    " better backspace and tab functionality
-filetype indent on              " enable filetype-specific indenting
-filetype on                     " enable filetype detection
-filetype plugin on              " enable filetype-specific plugins
+colorscheme catppuccin_macchiato " set colorscheme
+syntax on                        " enable syntax highlighting
+set autoindent smartindent       " auto/smart indent
+set autoread                     " watch for file changes
+set backspace=indent,eol,start   " more powerful backspacing
+set cursorcolumn                 " highlight the current column
+set cursorline                   " highlight the current line
+set nobackup                     " don't create pointless backup files; Use VCS instead
+set noswapfile                   " don't create swap files
+set number relativenumber        " show line numbers
+set scrolloff=5                  " show at least 5 lines above/below
+set showcmd                      " show selection metadata
+set showmatch                    " show matching brackets
+set showmode                     " show INSERT, VISUAL, etc. mode
+set smarttab                     " better backspace and tab functionality
+set termguicolors                " enable 24-bit colors
+filetype indent on               " enable filetype-specific indenting
+filetype on                      " enable filetype detection
+filetype plugin on               " enable filetype-specific plugins
 
 " tabs and indenting
 set autoindent          " auto indenting
