@@ -1,3 +1,7 @@
+# Set NVIM as default editor.
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 # Enable word splitting
 setopt shwordsplit
 
