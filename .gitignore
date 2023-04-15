@@ -2,4 +2,8 @@
 *.LSOverride
 Thumbs.db
 .bundle
-.config/*
+/.config/argocd
+/.config/grammarly-languageserver
+/.config/raycast
+/.config/iterm2
+/.config/lazygit/state.yml
