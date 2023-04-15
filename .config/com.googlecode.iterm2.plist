@@ -735,6 +735,8 @@
 			<string>/Users/alexander.nabokikh</string>
 		</dict>
 	</array>
+	<key>PromptOnQuit</key>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
