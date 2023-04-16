@@ -35,7 +35,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set Bat default theme
-export BAT_THEME="Catppuccin-macchiato"
+export BAT_THEME="Catppuccin-frappe"
 
 # Kubectl
 # export dry='-–dry-run=client -oyaml'
