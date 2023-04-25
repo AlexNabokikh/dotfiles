@@ -9,3 +9,4 @@ Thumbs.db
 /.config/lazygit/state.yml
 /.config/nvim/lazy-lock.json
 /.config/raycast
+/.config/helm
