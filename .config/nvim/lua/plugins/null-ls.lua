@@ -11,6 +11,11 @@ return {
             find_json = function()
               return vim.fn.expand("~/.config/nvim/utils/cspell.json")
             end,
+            on_success = function()
+              os.execute(
+                "cat ~/.config/nvim/utils/cspell.json | jq -S '.words |= sort' | tee ~/.config/nvim/utils/cspell.json > /dev/null"
+              )
+            end,
           },
         }),
         -- formatters
