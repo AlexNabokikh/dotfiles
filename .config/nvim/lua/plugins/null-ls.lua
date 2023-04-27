@@ -7,6 +7,7 @@ return {
       sources = {
         -- code actions
         nls.builtins.code_actions.cspell.with({
+          extra_args = { "--config", "~/.config/nvim/utils/cspell.json" },
           config = {
             find_json = function()
               return vim.fn.expand("~/.config/nvim/utils/cspell.json")
@@ -16,6 +17,11 @@ return {
                 "cat ~/.config/nvim/utils/cspell.json | jq -S '.words |= sort' | tee ~/.config/nvim/utils/cspell.json > /dev/null"
               )
             end,
+          },
+          filetypes = {
+            "markdown",
+            "text",
+            "txt",
           },
         }),
         -- formatters
