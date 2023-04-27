@@ -1,6 +1,6 @@
 {
-  "language": "en",
   "version": "0.2",
-  "flagWords": [],
-  "words": ["psycopg", "rolname", "usename"]
+  "language": "en",
+  "words": ["psycopg", "rolname", "usename", "tsort", "Ingestor"],
+  "flagWords": []
 }
