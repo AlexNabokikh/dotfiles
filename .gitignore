@@ -2,11 +2,13 @@
 *.LSOverride
 Thumbs.db
 .bundle
+/.config/Spicetify/Backup
+/.config/Spicetify/Extracted
 /.config/argocd
 /.config/github-copilot
 /.config/grammarly-languageserver
+/.config/helm
 /.config/iterm2
 /.config/lazygit/state.yml
 /.config/nvim/lazy-lock.json
 /.config/raycast
-/.config/helm
