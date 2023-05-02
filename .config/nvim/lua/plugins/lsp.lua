@@ -3,24 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        yamlls = {
-          settings = {
-            yaml = {
-              keyOrdering = false,
-            },
-          },
-        },
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                typeCheckingMode = "basic",
-              },
-            },
-          },
-        },
+        ansiblels = {},
+        dockerls = {},
+        bashls = {},
         gopls = {
           settings = {
             gopls = {
@@ -38,6 +23,47 @@ return {
                 parameterNames = true,
                 rangeVariableTypes = true,
               },
+            },
+          },
+        },
+        jsonls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+              completion = {
+                callSnippet = "Replace",
+              },
+            },
+          },
+        },
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = "basic",
+                diagnosticMode = "workspace",
+              },
+            },
+          },
+        },
+        ruff_lsp = {
+          settings = {
+            args = {
+              "--line-length=120",
+            },
+          },
+        },
+        terraformls = {},
+        tflint = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
             },
           },
         },
