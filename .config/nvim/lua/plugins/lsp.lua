@@ -52,9 +52,12 @@ return {
           },
         },
         ruff_lsp = {
-          settings = {
-            args = {
-              "--line-length=120",
+          on_attach = on_attach,
+          init_options = {
+            settings = {
+              args = {
+                "--line-length=120",
+              },
             },
           },
         },

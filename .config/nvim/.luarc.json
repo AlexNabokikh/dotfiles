@@ -22,6 +22,7 @@
         "black",
         "bash_language_server",
         "ansible_lint",
-        "ansible_language_server"
+        "ansible_language_server",
+        "on_attach"
     ]
 }

@@ -8,7 +8,9 @@ return {
         -- code actions
         nls.builtins.code_actions.shellcheck,
         -- formatters
-        nls.builtins.formatting.black,
+        nls.builtins.formatting.black.with({
+          extra_args = { "--line-length", "120" },
+        }),
         nls.builtins.formatting.prettier.with({
           filetypes = {
             "markdown",
