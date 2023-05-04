@@ -116,7 +116,7 @@
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
-  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
+  typeset -g POWERLEVEL9K_MODE=nerdfont-v3
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
   typeset -g POWERLEVEL9K_ICON_PADDING=none
@@ -988,7 +988,7 @@
   # - prefix       The same as CONDA_PREFIX.
   # - default_env  The same as CONDA_DEFAULT_ENV.
   # - name         The last segment of CONDA_PREFIX.
-  # - stacked_env  Comma-separated list of names in the environment stack. The first element is
+  # - stacked_env  Comma-separated lPOWERLEVEL9K_MODEist of names in the environment stack. The first element is
   #                always the same as default_env.
   #
   # Note: '({default_env}) ' is the default value of env_prompt.
