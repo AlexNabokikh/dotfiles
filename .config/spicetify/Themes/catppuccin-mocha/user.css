@@ -1,31 +1,33 @@
 /* Color Pallette */
 /* Note: These variables should be used ONLY when needed across ALL of the color palettes. */
 :root {
-  --flamingo: #eebebe;
-  --mauve: #ca9ee6;
-  --pink: #f4b8e4;
-  --maroon: #ea999c;
-  --red: #e78284;
-  --peach: #ef9f76;
-  --yellow: #e5c890;
-  --green: #a6d189;
-  --teal: #81c8be;
-  --blue: #8caaee;
-  --sky: #99dadb;
-  --crust: #232634;
-  --mantle: #292c3c;
-  --base: #303446;
-  --surface0: #414559;
-  --surface1: #51576d;
-  --overlay0: #737994;
-  ---overlay1: #838ba7;
-  --overlay2: #949cbb;
-  --text: #c6d0f5;
-  --lavender: #babbf1;
-  --rosewater: #f2d5cf;
+  /* Morning */
+  --flamingo: #f2cdcd;
+  --mauve: #cba6f7;
+  --pink: #f5c2e7;
+  --maroon: #eba0ac;
+  --red: #f38ba8;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --blue: #89b4fa;
+  --sky: #89dceb;
+  --crust: #11111B;
+  --mantle: #181825;
+  --base: #1E1E2E;
+  --surface0: #313244;
+  --surface1: #45475A;
+  --overlay0: #6C7086;
+  ---overlay1: #7f849C;
+  --overlay2: #9399B2;
+  --text: #cdd6f4;
+  --lavender: #b4befe;
+  --rosewater: #f5e0dc;
 }
 
 /* Buttons */
+
 .main-shuffleButton-button:focus:not(:focus-visible,:hover) {
   color: var(--surface1);
 }
@@ -39,7 +41,7 @@
 .main-skipBackButton-button {
   color: var(--text);
 }
-.main-playButton-PlayButton.main-playButton-primary {
+.main-sh.main-playButton-PlayButton.main-playButton-primary {
     color: var(--spice-player);
 }
 
@@ -65,7 +67,6 @@
 .control-button {
   color: var(--text);
 }
-
 .main-view-container button:hover > div[class^='ButtonInner-sc-'] {
     background-color: var(--spice-button);
 }
@@ -88,6 +89,11 @@
 }
 
 /* Top bars */
+.main-entityHeader-backgroundColor,
+.main-actionBarBackground-background,
+.main-view-container main[aria-label="Spotify – Web Player"] > div:first-child {
+    display: none;
+}
 
 .main-topBar-topBarContainer {
   margin-top: 10px;
@@ -104,16 +110,6 @@
 .x-searchInput-searchInputInput {
   background-color: var(--text);
   color: var(--crust) !important;
-}
-
-.main-entityHeader-backgroundColor,
-.main-actionBarBackground-background,
-.main-view-container main[aria-label="Spotify – Web Player"] > div:first-child {
-    display: none;
-}
-
-.main-topBar-background {
-    background-color: var(--spice-main) !important;
 }
 
 .main-entityHeader-withBackgroundImage {
@@ -148,7 +144,6 @@
 .main-navBar-navBarLinkActive {
   background-color: var(--spice-tab-active);
 }
-
 /* Scrollbar */
 .os-theme-spotify > .os-scrollbar-horizontal,
 .os-theme-spotify > .os-scrollbar-vertical {
@@ -222,7 +217,6 @@
 .TypeElement-mesto-type {
   color: var(--text);
 }
-
 .artist-artistOnTour-timeAndVenue.artist-artistOnTour-condensed {
     color: var(--text);
 }
@@ -235,7 +229,6 @@
 .UyzJidwrGk3awngSGIwv {
     color: var(--text);
 }
-
 /* Settings */
 
 /* Search icon */
@@ -253,6 +246,11 @@
 .main-dropDown-dropDown {
   color: var(--spice-text);
   background-color: var(--surface0);
+}
+
+/* Settings labels */
+.TypeElement-viola-textSubdued-type {
+  color: var(--text);
 }
 
 input:checked~.x-toggle-indicatorWrapper {

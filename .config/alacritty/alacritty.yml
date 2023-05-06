@@ -34,7 +34,7 @@ font:
     style: Italic
 
 import:
-  - ~/.config/alacritty/catppuccin-frappe.yml
+  - ~/.config/alacritty/catppuccin-macchiato.yml
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
