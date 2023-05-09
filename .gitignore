@@ -2,6 +2,7 @@
 *.LSOverride
 Thumbs.db
 .bundle
+/.config/Duplicati
 /.config/Spicetify/Backup
 /.config/Spicetify/Extracted
 /.config/argocd
