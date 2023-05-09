@@ -11,7 +11,7 @@ return {
     end,
     keys = {
       { "_", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
-      { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+      { "<leader>tt", "<cmd>ToggleTerm dir=%:h:p<cr>", desc = "Terminal" },
     },
   },
 }
