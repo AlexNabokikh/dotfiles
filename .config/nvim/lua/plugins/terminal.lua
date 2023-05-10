@@ -4,7 +4,7 @@ return {
     lazy = true,
     cmd = { "ToggleTerm" },
     opts = {
-      size = 20,
+      size = 15,
     },
     config = function(_, opts)
       require("toggleterm").setup(opts)
