@@ -43,3 +43,5 @@ live_config_reload: true
 
 key_bindings:
   - { key: X, mods: Control, action: ToggleViMode }
+  - { key: J, mods: Control, mode: Vi, action: ScrollLineDown }
+  - { key: K, mods: Control, mode: Vi, action: ScrollLineUp }
