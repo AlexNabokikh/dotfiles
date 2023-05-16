@@ -40,3 +40,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 live_config_reload: true
+
+key_bindings:
+  - { key: X, mods: Control, action: ToggleViMode }
