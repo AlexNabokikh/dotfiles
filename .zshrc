@@ -27,9 +27,6 @@ else
   echo "Unknown kernel: ${kernel_name}"
 fi
 
-# Load pyenv
-eval "$(pyenv init --path)"
-
 # GPG.
 export GPG_TTY=$TTY
 
@@ -55,7 +52,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(asdf brew docker golang git helm history history-substring-search kubectl pip pyenv poetry sudo terraform tmux vi-mode z)
+plugins=(brew git history history-substring-search kubectl sudo tmux vi-mode)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -176,6 +173,9 @@ source "$ZSH/oh-my-zsh.sh"
 # shellcheck disable=SC1090
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ć" fzf-cd-widget
+
+# Load pyenv
+eval "$(pyenv init --path --no-rehash)"
 
 # Prevent duplicates of PATH variables
 typeset -U PATH
