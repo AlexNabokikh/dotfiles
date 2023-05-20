@@ -18,3 +18,13 @@
 /.config/nvim/lazy-lock.json
 /.config/raycast
 Thumbs.db
+.config/dconf
+.config/evolution/sources
+.config/ibus/bus
+.config/pop-system-updater
+.config/pulse
+.config/touchegg
+.config/gnome-initial-setup-done
+.config/mimeapps.list
+.config/user-dirs.dirs
+.config/user-dirs.locale
