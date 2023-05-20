@@ -172,7 +172,11 @@ source "$ZSH/oh-my-zsh.sh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # shellcheck disable=SC1090
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+prefix=$(brew --prefix)
+version=$(fzf --version | awk '{print $1}')
+[ -f "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh" ] && \
+  source "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh"
+
 bindkey "ć" fzf-cd-widget
 
 # Load pyenv
