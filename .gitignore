@@ -32,3 +32,4 @@
 /.config/nvim/lazy-lock.json
 /.config/raycast
 Thumbs.db
+.config/neofetch
