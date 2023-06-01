@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Quit All Applications",
+        "description": "Quit All Applications",
+        "icon": "~/.config/ulauncher/quit.png",
+        "script": "~/.config/ulauncher/quit.sh",
+        "default_arguments": []
+    },
+    {
+        "name": "Work Tools",
+        "description": "Work Tools",
+        "icon": "~/.config/ulauncher/work.png",
+        "script": "~/.config/ulauncher/work.sh",
+        "default_arguments": []
+    }
+]
