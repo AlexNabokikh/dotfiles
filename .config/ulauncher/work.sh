@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Check if Firefox is already running
-if ! pgrep "firefox" >/dev/null; then
-	echo "Launching Firefox..."
-	flatpak run org.mozilla.firefox &
+if ! pgrep "brave-browser" >/dev/null; then
+	echo "Launching Brave..."
+	brave-browser &
 else
-	echo "Firefox is already running."
+	echo "Brave is already running."
 fi
 
 sleep 1
