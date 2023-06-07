@@ -93,6 +93,7 @@ alias n='nvim'
 alias repo='cd $HOME/Documents/repositories'
 alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
 
 # Completions.
