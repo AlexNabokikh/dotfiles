@@ -33,9 +33,6 @@ export GPG_TTY=$TTY
 # Java.
 export JAVA_HOME=/usr/local/opt/openjdk@11
 
-# NPM PREFIX
-NPM_CONFIG_PREFIX=~/.npm-global
-
 # Oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 # shellcheck disable=SC2034
