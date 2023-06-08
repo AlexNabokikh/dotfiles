@@ -1,9 +1,9 @@
 {
     "6524dac6-7723-4a88-b920-65b1f96ee946": {
         "id": "6524dac6-7723-4a88-b920-65b1f96ee946",
-        "name": "duck",
-        "keyword": "du",
-        "cmd": "https://duckduckgo.com/?q=%s",
+        "name": "brave",
+        "keyword": "goo",
+        "cmd": "https://search.brave.com/search?q=%s",
         "icon": "~/Downloads/temp/duckduckgo_logo_icon_170206.png",
         "is_default_search": true,
         "run_without_argument": false,
