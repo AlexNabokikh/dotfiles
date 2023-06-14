@@ -1,4 +1,4 @@
-nodejs 20.3.0
-python 3.11.4
-terraform 1.5.0
-terragrunt 0.46.3
+nodejs latest
+python latest
+terraform latest
+terragrunt latest
