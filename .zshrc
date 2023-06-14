@@ -14,15 +14,14 @@ setopt shwordsplit
 
 # Custom $PATH with extra locations.
 export GOPATH=$HOME/go
-export PYENV_ROOT="$HOME/.pyenv"
 export KREW_ROOT="$HOME/.krew"
 
 # Set OS specific $PATH.
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$PYENV_ROOT/bin:$HOME/.rd/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$HOME/.rd/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PYENV_ROOT/bin:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
@@ -52,7 +51,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(brew git history history-substring-search kubectl sudo tmux vi-mode)
+plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -180,8 +179,6 @@ version=$(fzf --version | awk '{print $1}')
 
 bindkey "ć" fzf-cd-widget
 
-# Load pyenv
-eval "$(pyenv init --path --no-rehash)"
 
 # Prevent duplicates of PATH variables
 typeset -U PATH
