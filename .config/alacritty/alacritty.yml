@@ -9,7 +9,6 @@ window:
   dimensions:
     columns: 170
     lines: 45
-  title: Alacritty
   padding:
     x: 5
     y: 1
