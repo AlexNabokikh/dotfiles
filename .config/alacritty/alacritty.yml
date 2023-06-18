@@ -4,6 +4,7 @@ env:
   WINIT_X11_SCALE_FACTOR: "0.8"
 
 window:
+  # decorations: none
   dynamic_title: false
   dynamic_padding: true
   dimensions:
