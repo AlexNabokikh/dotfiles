@@ -27,13 +27,6 @@
         "last_commit": "ff8b0875ed5d78dcc1db5f638b201a460cc6d7f7",
         "last_commit_time": "2020-10-06T08:36:54"
     },
-    "com.github.the-lay.ulauncher-spotify-api": {
-        "id": "com.github.the-lay.ulauncher-spotify-api",
-        "url": "https://github.com/the-lay/ulauncher-spotify-api",
-        "updated_at": "2023-06-15T20:19:03.676045",
-        "last_commit": "edf13b356543bb2827ed3c78981c007e5be40e77",
-        "last_commit_time": "2022-12-26T12:08:25"
-    },
     "com.github.ceroprogramming.ulauncher-pulsecontrol": {
         "id": "com.github.ceroprogramming.ulauncher-pulsecontrol",
         "url": "https://github.com/CeroProgramming/ulauncher-pulsecontrol",
