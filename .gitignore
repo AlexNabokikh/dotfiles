@@ -34,3 +34,9 @@
 Thumbs.db
 .config/neofetch
 .config/BraveSoftware/Brave-Browser
+.config/gnome-control-center/backgrounds
+.config/GNOME-xdg-terminals.list
+.config/QtProject.conf
+.config/monitors.xml
+.config/ubuntu-xdg-terminals.list
+.config/xdg-terminals.list
