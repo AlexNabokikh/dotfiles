@@ -117,6 +117,14 @@ function gsync() {
     git push origin "$1"
 }
 
+# cd to the project
+cd-to-project() {
+  selected=$(find ~/Documents/repositories -mindepth 1 -maxdepth 2 -type d | fzf)
+  if [ -n "$selected" ]; then
+    tmux new-window -c $selected -n "$(basename $selected)" || exit
+  fi
+}
+
 # find-in-file - usage: fif <SEARCH_TERM>
 fif() {
   if [ ! "$#" -gt 0 ]; then
@@ -178,7 +186,7 @@ version=$(fzf --version | awk '{print $1}')
   source "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh"
 
 bindkey "ć" fzf-cd-widget
-
+bindkey -s ^f "cd-to-project\n"
 
 # Prevent duplicates of PATH variables
 typeset -U PATH
