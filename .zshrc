@@ -72,7 +72,7 @@ export FZF_DEFAULT_OPTS="
 --bind '?:toggle-preview'
 --bind 'ctrl-a:select-all'
 --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
---bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+--bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
 --bind 'ctrl-v:execute(code {+})'
 "
 
@@ -99,23 +99,6 @@ alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUB
 autoload -Uz compinit && compinit
 
 # Functions
-# Usage: gsync master (checks out master, pull upstream, push origin).
-function gsync() {
-  if [[ ! "$1" ]]; then
-    echo "You must supply a branch."
-    return 0
-  fi
-
-  BRANCHES=$(git branch --list "$1")
-  if [ ! "$BRANCHES" ]; then
-    echo "Branch $1 does not exist."
-    return 0
-  fi
-
-  git checkout "$1" &&
-    git pull upstream "$1" &&
-    git push origin "$1"
-}
 
 # cd to the project
 cd-to-project() {
