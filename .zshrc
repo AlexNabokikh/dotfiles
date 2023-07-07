@@ -104,7 +104,7 @@ autoload -Uz compinit && compinit
 cd-to-project() {
   selected=$(find ~/Documents/repositories ~/go/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
   if [ -n "$selected" ]; then
-    tmux new-window -c $selected -n "$(basename $selected)" || exit
+    tmux new-window -c "$selected" -n "$(basename "$selected")" || exit
   fi
 }
 
@@ -120,24 +120,21 @@ fif() {
 
 # Docker functions
 # Select a docker container to start and attach to
-function da() {
-  local cid
+da() {
   cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 
   [ -n "$cid" ] && docker exec -it "$cid" sh
 }
 
 # Select a running docker container to stop
-function ds() {
-  local cid
+ds() {
   cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
 
   [ -n "$cid" ] && docker stop "$cid"
 }
 
 # Select a docker container to remove
-function drm() {
-  local cid
+drm() {
   cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
 
   [ -n "$cid" ] && docker rm "$cid"
