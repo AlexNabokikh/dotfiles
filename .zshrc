@@ -102,7 +102,7 @@ autoload -Uz compinit && compinit
 
 # cd to the project
 cd-to-project() {
-  selected=$(find ~/Documents/repositories ~/go/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
+  selected=$(find ~/Documents/repositories ~/go/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf --height 40%)
   if [ -n "$selected" ]; then
     tmux new-window -c "$selected" -n "$(basename "$selected")" || exit
   fi
