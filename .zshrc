@@ -115,36 +115,45 @@ fif() {
     return 1
   fi
 
-  rg --hidden --glob '!.git' --files-with-matches --no-messages "$1" | fzf --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+  rg --hidden --glob '!.git' --files-with-matches --no-messages "$1" | fzf --preview --height 40% "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
 # Docker functions
 # Select a docker container to start and attach to
 da() {
-  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" --height 40% | awk '{print $1}')
 
   [ -n "$cid" ] && docker exec -it "$cid" sh
 }
 
 # Select a running docker container to stop
 ds() {
-  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+  cid=$(docker ps | sed 1d | fzf -q "$1" --height 40% | awk '{print $1}')
 
   [ -n "$cid" ] && docker stop "$cid"
 }
 
 # Select a docker container to remove
 drm() {
-  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
+  cid=$(docker ps -a | sed 1d | fzf -q "$1" --height 40% | awk '{print $1}')
 
   [ -n "$cid" ] && docker rm "$cid"
+}
+
+# fzf kill
+fkill() {
+	pid=$(ps -ef | sed 1d | fzf --height 40% | awk '{print $2}')
+
+	if [ "x$pid" != "x" ]; then
+		kill -"${1:-9}" "$pid"
+	fi
 }
 
 # Delete a given line number in the known_hosts file.
 knownrm() {
   re='^[0-9]+$'
-  line_number=$1
-  if ! [[ $1 =~ $re ]]; then
+  line_number=$(cat -n ~/.ssh/known_hosts | fzf --height 40% | awk '{print $1}')
+  if ! [[ $line_number =~ $re ]]; then
     echo "error: line number missing" >&2
   else
     sed -i "${line_number}d" ~/.ssh/known_hosts
