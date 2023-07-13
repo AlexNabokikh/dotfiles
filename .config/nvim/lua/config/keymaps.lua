@@ -8,6 +8,10 @@ vim.keymap.set("n", "<leader>fa", function()
 end, { desc = "Find including hidden" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc><Esc>", "<Esc>")
-vim.keymap.set("n", "<leader>wb", function()
-  vim.opt_local.scrollbind = not vim.opt_local.scrollbind:get()
-end, { desc = "toggle scroll bind on current buffer" })
+vim.cmd([[
+  noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
+  noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
+  noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
+  noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+  noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
+]])
