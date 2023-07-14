@@ -19,9 +19,9 @@ export KREW_ROOT="$HOME/.krew"
 # Set OS specific $PATH.
 kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
-  export PATH=/opt/homebrew/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$HOME/.rd/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+  export PATH=/opt/homebrew/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$HOME/.rd/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:$HOME/.local/scripts:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
