@@ -41,7 +41,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export BAT_THEME="Catppuccin-macchiato"
 
 # Kubectl
-# export dry='-–dry-run=client -oyaml'
 export dry='--dry-run=client --output=yaml'
 
 # VI mode
@@ -100,7 +99,6 @@ alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUB
 autoload -Uz compinit && compinit
 
 # Functions
-
 # cd to the project
 cd-to-project() {
   selected=$(find ~/Documents/repositories ~/go/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
@@ -109,7 +107,7 @@ cd-to-project() {
   fi
 }
 
-# find-in-file - usage: fif <SEARCH_TERM>
+# find-in-file
 fif() {
   if [ ! "$#" -gt 0 ]; then
     echo "Need a string to search for!"
