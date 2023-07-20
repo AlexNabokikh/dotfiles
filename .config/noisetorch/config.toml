@@ -1,7 +1,7 @@
-Threshold = 70
+Threshold = 60
 DisplayMonitorSources = false
 EnableUpdates = true
 FilterInput = true
 FilterOutput = false
-LastUsedInput = "bluez_input.14_3F_A6_10_BB_12.0"
+LastUsedInput = "alsa_input.usb-Blue_Microphones_Yeti_X_2045SG00DN58_888-000316110306-00.analog-stereo"
 LastUsedOutput = ""
