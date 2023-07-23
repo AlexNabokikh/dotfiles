@@ -50,7 +50,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode)
+plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode zsh-aliases-exa)
 
 # Set history settings.
 HISTFILE=~/.histfile
