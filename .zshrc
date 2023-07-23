@@ -50,7 +50,7 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode zsh-aliases-exa)
+plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -162,6 +162,12 @@ knownrm() {
 # Load Oh-my-zsh.
 # shellcheck disable=SC1091
 source "$ZSH/oh-my-zsh.sh"
+
+# Override Oh-my-zsh Aliases.
+alias ls='exa'                                 # default view
+alias ll='exa -bhl --group-directories-first'  # long list
+alias la='exa -abhl --group-directories-first' # all list
+alias lt='exa --tree --level=2'                # tree
 
 # Load Powerlevel10k config.
 # shellcheck disable=SC1090
