@@ -50,7 +50,14 @@ bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
-plugins=(asdf brew git history history-substring-search kubectl sudo tmux vi-mode)
+plugins=(asdf
+  brew
+  git
+  history-substring-search
+  kubectl
+  sudo
+  tmux
+  vi-mode)
 
 # Set history settings.
 HISTFILE=~/.histfile
@@ -90,13 +97,13 @@ alias aws-okta='. ~/.aws_okta/aws-okta'
 alias lg='lazygit'
 alias n='nvim'
 alias repo='cd $HOME/Documents/repositories'
-alias stayawake='caffeinate -d -i -m &'
 alias temp='cd $HOME/Downloads/temp'
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias update='for SUBC in update upgrade autoremove autoclean; do sudo apt ${SUBC} -y; done'
 
 # Completions.
 autoload -Uz compinit && compinit
+zle_highlight=('paste:none')
 
 # Functions
 # cd to the project
