@@ -9,7 +9,7 @@
 .app {
     background-color: @backgroundColor;
     border-color: @accentColor;
-    border-radius: 14px;
+    border-radius: 12px;
 }
 
 .input {
@@ -34,7 +34,7 @@
 
 .selected.item-box {
     background-color: alpha (@accentColor, 0.3);
-    border-radius: 14px;
+    border-radius: 12px;
 }
 
 .selected.item-box .item-text {
