@@ -4,35 +4,38 @@ log() {
 	printf "%s %s\n" "->" "$1"
 }
 
-log "Updating all asdf-plugin remotes..."
+log "updating all asdf-plugin remotes..."
 asdf plugin update --all
 
-log "Updating each plugin reference to the latest revision..."
+log "updating each plugin reference to the latest revision..."
 {
-	while read -r plugin; do
-		echo "$plugin $(asdf latest "$plugin")"
+	while IFS=' ' read -r plugin version; do
+		if [ "$plugin" == "java" ]; then
+			echo "$plugin $(asdf latest "$plugin" "adoptopenjdk-11")"
+		else
+			echo "$plugin $(asdf latest "$plugin")"
+		fi
 	done <~/.tool-versions
 } >~/.tool-versions.new
 
 cp ~/.tool-versions ~/.tool-versions.bk
 mv ~/.tool-versions.new ~/.tool-versions
 
-log "Old revision versions:"
+log "old revision versions:"
 cat ~/.tool-versions.bk
-log "New revision versions:"
+log "new revision versions:"
 cat ~/.tool-versions
 
 while true; do
-	# shellcheck disable=2162
-	read -p "Do you wish to install all new revisions? (y/n): " yn
+	read -p "do you wish to install all new revisions? (y/n): " yn
 	case $yn in
-	[Yy]*)
+	[yy]*)
 		asdf install
 		break
 		;;
-	[Nn]*) exit ;;
-	*) log "Please answer Yes or No." ;;
+	[nn]*) exit ;;
+	*) log "please answer yes or no." ;;
 	esac
 done
 
-log "Done, bye! 👋"
+log "done, bye! 👋"

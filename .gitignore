@@ -46,3 +46,5 @@ Thumbs.db
 .config/spicetify/Backup
 .config/spicetify/Extracted
 .config/monitors.xml~
+.config/gtk-2.0
+.config/GIMP/2.10
