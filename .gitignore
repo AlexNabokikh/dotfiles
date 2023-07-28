@@ -41,3 +41,8 @@ Thumbs.db
 .config/ubuntu-xdg-terminals.list
 .config/xdg-terminals.list
 .config/VirtualBox
+.config/enchant
+.config/nautilus
+.config/spicetify/Backup
+.config/spicetify/Extracted
+.config/monitors.xml~

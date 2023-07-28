@@ -10,6 +10,9 @@
     {
       "class": "gnome-calculator",
       "title": "Calculator"
+    },
+    {
+      "class": "Evolution-alarm-notify"
     }
   ],
   "skiptaskbarhidden": [],
