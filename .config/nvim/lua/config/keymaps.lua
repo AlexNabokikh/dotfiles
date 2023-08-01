@@ -3,11 +3,14 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>aa", "<cmd>Alpha<CR>", { desc = "Go to Alpha Menu" })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fa",
-  ":lua require('telescope.builtin').find_files({ find_command = { 'rg', '--files', '--hidden', '-g', '!.git/' }, cwd = '~/Documents/repositories/' })<CR>",
-  { noremap = true, silent = true }
-)
+vim.keymap.set("n", "<leader>fa", function()
+  return require("telescope.builtin").find_files({
+    find_command = { "rg", "--files", "--hidden", "-g", "!.git/" },
+    cwd = "~/Documents/repositories/",
+  })
+end, { desc = "Find all files in repositories directory" })
+vim.keymap.set("n", "<leader>fh", function()
+  return require("telescope.builtin").find_files({ find_command = { "rg", "--files", "--hidden", "-g", "!.git/" } })
+end, { desc = "Find including hidden" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc><Esc>", "<Esc>")
