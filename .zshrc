@@ -44,9 +44,7 @@ export BAT_THEME="Catppuccin-macchiato"
 export dry='--dry-run=client --output=yaml'
 
 # VI mode
-# shellcheck disable=SC2034
 KEYTIMEOUT=1
-bindkey -M vicmd 'V' edit-command-line
 
 # Enable plugins.
 # shellcheck disable=SC2034
@@ -85,12 +83,6 @@ export FZF_DEFAULT_OPTS="
 
 # Set lazygit config location
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# Allow history search via up/down keys.
-# shellcheck disable=SC1091
-source "$HOME/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
@@ -187,8 +179,18 @@ version=$(fzf --version | awk '{print $1}')
 [ -f "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh" ] && \
   source "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh"
 
+# key-bindings
+# Set history search via up/down keys.
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+# Set opt+c on Mac to run fzf-cd-widget
 bindkey "ć" fzf-cd-widget
+# Set ctrl+f to run cd-to-project
 bindkey -s ^f "cd-to-project\n"
+# Set V to edit command line in vim
+bindkey -M vicmd 'V' edit-command-line
+# Re-Set alt+backspace to delete word
+bindkey '^[^?' backward-kill-word
 
 # Prevent duplicates of PATH variables
 typeset -U PATH
