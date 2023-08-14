@@ -21,7 +21,7 @@ kernel_name="$(uname)"
 if [ "${kernel_name}" = "Darwin" ]; then
   export PATH=/opt/homebrew/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:$GOPATH/bin:$HOME/.rd/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 elif [ "${kernel_name}" = "Linux" ]; then
-  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:$HOME/.local/scripts:usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PATH
+  export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/bin:/usr/local/sbin:$HOME/bin:$KREW_ROOT/bin:bin:$GOPATH:$PATH
 else
   echo "Unknown kernel: ${kernel_name}"
 fi
@@ -53,7 +53,6 @@ plugins=(asdf
   git
   history-substring-search
   kubectl
-  sudo
   tmux
   vi-mode)
 
@@ -101,7 +100,7 @@ zle_highlight=('paste:none')
 # Functions
 # cd to the project
 cd-to-project() {
-  selected=$(find ~/Documents/repositories ~/go/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
+  selected=$(find ~/Documents/repositories $GOPATH/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
   if [ -n "$selected" ]; then
     tmux new-window -c "$selected" -n "$(basename "$selected")" || exit
   fi
