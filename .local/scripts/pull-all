@@ -28,12 +28,17 @@ def git_pull(directory):
         print(f"Failed to update {directory}. Error: {str(e)}")
 
 
-if os.path.exists(repo_directory):
-    for root, dirs, files in os.walk(repo_directory):
-        for dir in dirs:
-            full_dir_path = os.path.join(root, dir)
+def main():
+    if os.path.exists(repo_directory):
+        for root, dirs, _ in os.walk(repo_directory):
+            for dir in dirs:
+                full_dir_path = os.path.join(root, dir)
 
-            if is_git_directory(full_dir_path):
-                git_pull(full_dir_path)
-else:
-    print(f"The directory {repo_directory} does not exist.")
+                if is_git_directory(full_dir_path):
+                    git_pull(full_dir_path)
+    else:
+        print(f"The directory {repo_directory} does not exist.")
+
+
+if __name__ == "__main__":
+    main()
