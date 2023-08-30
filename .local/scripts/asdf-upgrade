@@ -1,41 +1,78 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-log() {
-	printf "%s %s\n" "->" "$1"
-}
+import os
+import shutil
+import subprocess
 
-log "updating all asdf-plugin remotes..."
-asdf plugin update --all
 
-log "updating each plugin reference to the latest revision..."
-{
-	while IFS=' ' read -r plugin version; do
-		if [ "$plugin" == "java" ]; then
-			echo "$plugin $(asdf latest "$plugin" "adoptopenjdk-11")"
-		else
-			echo "$plugin $(asdf latest "$plugin")"
-		fi
-	done <~/.tool-versions
-} >~/.tool-versions.new
+def log(message):
+    """Logs a message to the console."""
+    print(f"-> {message}")
 
-cp ~/.tool-versions ~/.tool-versions.bk
-mv ~/.tool-versions.new ~/.tool-versions
 
-log "old revision versions:"
-cat ~/.tool-versions.bk
-log "new revision versions:"
-cat ~/.tool-versions
+def update_asdf_plugins():
+    """Updates all asdf plugins."""
+    log("updating all asdf-plugin remotes...")
+    subprocess.run(["asdf", "plugin", "update", "--all"])
 
-while true; do
-	read -p "do you wish to install all new revisions? (y/n): " yn
-	case $yn in
-	[yy]*)
-		asdf install
-		break
-		;;
-	[nn]*) exit ;;
-	*) log "please answer yes or no." ;;
-	esac
-done
 
-log "done, bye! 👋"
+def get_new_version(plugin):
+    """Fetches the latest version of a given plugin."""
+    if plugin == "java":
+        return subprocess.getoutput(f'asdf latest "{plugin}" "adoptopenjdk-11"').strip()
+    else:
+        return subprocess.getoutput(f'asdf latest "{plugin}"').strip()
+
+
+def write_new_versions(infile, outfile):
+    """Writes new versions to a given output file based on the input file."""
+    log("updating each plugin reference to the latest revision...")
+    for line in infile:
+        parts = line.strip().split(" ")
+        if len(parts) != 2:
+            log(f"Skipping malformed line: {line.strip()}")
+            continue
+        plugin, _ = parts
+        new_version = get_new_version(plugin)
+        outfile.write(f"{plugin} {new_version}\n")
+
+
+def main():
+    tool_versions_path = os.path.expanduser("~/.tool-versions")
+    new_tool_versions_path = os.path.expanduser("~/.tool-versions.new")
+    backup_tool_versions_path = os.path.expanduser("~/.tool-versions.bk")
+
+    update_asdf_plugins()
+
+    try:
+        with open(tool_versions_path, "r") as infile, open(new_tool_versions_path, "w") as outfile:
+            write_new_versions(infile, outfile)
+    except Exception as e:
+        log(f"An error occurred: {e}")
+        return
+
+    # Create a backup and move the new file
+    shutil.copy(tool_versions_path, backup_tool_versions_path)
+    shutil.move(new_tool_versions_path, tool_versions_path)
+
+    log("old revision versions:")
+    subprocess.run(["cat", backup_tool_versions_path])
+
+    log("new revision versions:")
+    subprocess.run(["cat", tool_versions_path])
+
+    while True:
+        yn = input("do you wish to install all new revisions? (y/n): ")
+        if yn.lower().startswith("y"):
+            subprocess.run(["asdf", "install"])
+            break
+        elif yn.lower().startswith("n"):
+            exit()
+        else:
+            log("please answer yes or no.")
+
+    log("done, bye! 👋")
+
+
+if __name__ == "__main__":
+    main()
