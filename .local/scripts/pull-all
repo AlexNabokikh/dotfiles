@@ -41,6 +41,10 @@ def main():
             for dir in dirs:
                 full_dir_path = os.path.join(root, dir)
 
+                # Skip if the directory is under a .terraform directory
+                if ".terraform" in full_dir_path.split("/"):
+                    continue
+
                 if is_git_directory(full_dir_path):
                     git_pull(full_dir_path)
     else:
