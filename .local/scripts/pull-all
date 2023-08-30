@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+
+repo_directory = os.path.expanduser("~/Documents/repositories")
+
+
+def is_git_directory(directory):
+    """
+    Checks if a directory is a Git repository by looking for a .git subdirectory.
+    """
+    return os.path.isdir(os.path.join(directory, ".git"))
+
+
+def git_pull(directory):
+    """
+    Performs a Git pull operation in the specified directory.
+    """
+    try:
+        os.chdir(directory)
+
+        print(f"Pulling updates for {directory}")
+        subprocess.run(["git", "pull", "origin", "master"], check=True)
+
+        print(f"Successfully updated {directory}")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to update {directory}. Error: {str(e)}")
+
+
+if os.path.exists(repo_directory):
+    for root, dirs, files in os.walk(repo_directory):
+        for dir in dirs:
+            full_dir_path = os.path.join(root, dir)
+
+            if is_git_directory(full_dir_path):
+                git_pull(full_dir_path)
+else:
+    print(f"The directory {repo_directory} does not exist.")
