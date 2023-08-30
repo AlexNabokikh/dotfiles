@@ -17,15 +17,22 @@ def git_pull(directory):
     """
     Performs a Git pull operation in the specified directory.
     """
+    os.chdir(directory)  # Navigate to directory
+
     try:
-        os.chdir(directory)
-
-        print(f"Pulling updates for {directory}")
-        subprocess.run(["git", "pull", "origin", "master"], check=True)
-
-        print(f"Successfully updated {directory}")
+        # Run git pull command for 'master' branch
+        subprocess.run(["git", "pull", "origin", "master"], check=True, capture_output=True, text=True)
+        print(f"Successfully updated {directory} from 'master' branch.")
     except subprocess.CalledProcessError as e:
-        print(f"Failed to update {directory}. Error: {str(e)}")
+        if "fatal: couldn't find remote ref master" in e.stderr:
+            try:
+                # If 'master' is not found, try pulling from 'main' branch
+                subprocess.run(["git", "pull", "origin", "main"], check=True)
+                print(f"Successfully updated {directory} from 'main' branch.")
+            except subprocess.CalledProcessError as e_inner:
+                print(f"Failed to update {directory} from 'main' branch. Error: {str(e_inner)}")
+        else:
+            print(f"Failed to update {directory} from 'master' branch. Error: {str(e)}")
 
 
 def main():
