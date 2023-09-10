@@ -1,7 +1,7 @@
-Threshold = 10
+Threshold = 5
 DisplayMonitorSources = false
 EnableUpdates = true
 FilterInput = true
 FilterOutput = false
-LastUsedInput = "bluez_input.14_3F_A6_10_BB_12.0"
+LastUsedInput = "alsa_input.usb-R__DE_R__DE_PodMic_USB_67940A42-00.mono-fallback"
 LastUsedOutput = ""
