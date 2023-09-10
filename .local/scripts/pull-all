@@ -13,26 +13,38 @@ def is_git_directory(directory):
     return os.path.isdir(os.path.join(directory, ".git"))
 
 
+def get_git_main_branch(directory):
+    """
+    Determines the name of the main branch for the Git repository located at 'directory'.
+    """
+    os.chdir(directory)
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"], check=True, capture_output=True, text=True
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to determine the main branch for {directory}. Error: {str(e)}")
+        return None
+
+
 def git_pull(directory):
     """
     Performs a Git pull operation in the specified directory.
     """
     os.chdir(directory)  # Navigate to directory
+    main_branch = get_git_main_branch(directory)
+
+    if main_branch is None:
+        print(f"Skipping pull operation for {directory}.")
+        return
 
     try:
-        # Run git pull command for 'master' branch
-        subprocess.run(["git", "pull", "origin", "master"], check=True, capture_output=True, text=True)
-        print(f"Successfully updated {directory} from 'master' branch.")
+        # Run git pull command for the detected main branch
+        subprocess.run(["git", "pull", "origin", main_branch], check=True, capture_output=True, text=True)
+        print(f"Successfully updated {directory} from '{main_branch}' branch.")
     except subprocess.CalledProcessError as e:
-        if "fatal: couldn't find remote ref master" in e.stderr:
-            try:
-                # If 'master' is not found, try pulling from 'main' branch
-                subprocess.run(["git", "pull", "origin", "main"], check=True)
-                print(f"Successfully updated {directory} from 'main' branch.")
-            except subprocess.CalledProcessError as e_inner:
-                print(f"Failed to update {directory} from 'main' branch. Error: {str(e_inner)}")
-        else:
-            print(f"Failed to update {directory} from 'master' branch. Error: {str(e)}")
+        print(f"Failed to update {directory} from '{main_branch}' branch. Error: {str(e)}")
 
 
 def main():
