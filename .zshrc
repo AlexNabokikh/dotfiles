@@ -115,28 +115,6 @@ fif() {
   rg --hidden --glob '!.git' --files-with-matches --no-messages "$1" | fzf --preview "rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
-# Docker functions
-# Select a docker container to start and attach to
-da() {
-  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker exec -it "$cid" sh
-}
-
-# Select a running docker container to stop
-ds() {
-  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker stop "$cid"
-}
-
-# Select a docker container to remove
-drm() {
-  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && docker rm "$cid"
-}
-
 # fzf kill
 fkill() {
 	pid=$(ps -ef | sed 1d | fzf | awk '{print $2}')
