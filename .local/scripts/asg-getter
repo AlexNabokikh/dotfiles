@@ -73,7 +73,7 @@ def get_instances_in_asg(region, asg):
         region,
     ]
     ins_str = run_command(command)
-    return ins_str.split() if ins_str else []  # Use split() with default arguments to split by any whitespace
+    return ins_str.split() if ins_str else []
 
 
 def get_node_by_instance(region, instance_id):
@@ -105,10 +105,21 @@ if __name__ == "__main__":
         print("No ASGs found.")
         exit(1)
 
+    print("Found the following Auto Scaling Groups:")
+    for idx, asg in enumerate(asgs):
+        print(f"{idx + 1}. {asg}")
+
+    specific_asg = prompt("Would you like to query a specific ASG? (y/n): ")
+    if specific_asg:
+        asg_number = int(get_input("Enter the number corresponding to the ASG you want to query: "))
+        if 1 <= asg_number <= len(asgs):
+            asgs = [asgs[asg_number - 1]]
+        else:
+            print("Invalid ASG number.")
+            sys.exit(1)
+
     for asg in asgs:
         print(f"Current autoscaling-group: {asg}")
-        if not prompt("Continue with this ASG? (y/n): "):
-            continue
 
         instances = get_instances_in_asg(AWS_DEFAULT_REGION, asg)
         if not instances:
