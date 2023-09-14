@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import re
 import subprocess
 import sys
 import time
@@ -21,6 +22,27 @@ def check_dependency(command):
     except FileNotFoundError:
         print(f"Error: The command '{command}' is not found. Please install it before proceeding.")
         sys.exit(1)
+
+
+def fetch_cluster_info():
+    """
+    Fetches AWS cluster name and default region from `kubectl config current-context`.
+
+    Returns:
+        tuple: AWS_DEFAULT_REGION and CLUSTER_NAME or None if an error occurs.
+    """
+    command = ["kubectl", "config", "current-context"]
+    cluster_info = run_command(command)
+    if not cluster_info:
+        print("Failed to fetch cluster information.")
+        return None, None
+
+    match = re.search(r"arn:aws:eks:(.+?):\d+:cluster/(.+)$", cluster_info)
+    if match:
+        region, cluster_name = match.groups()
+        return region, cluster_name
+
+    return None, None
 
 
 def run_command(command_list, capture_output=True):
@@ -67,6 +89,52 @@ def prompt():
         except KeyboardInterrupt:
             print("\nOperation cancelled by the user.")
             sys.exit(0)
+
+
+def get_input(label):
+    """
+    Get input from the user.
+
+    Args:
+        label (str): Label for the input field.
+
+    Returns:
+        str: User input.
+
+    Raises:
+        SystemExit: If the operation is cancelled by the user.
+    """
+    try:
+        return input(f"Please enter the {label}: ")
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by the user.")
+        sys.exit(0)
+
+
+def get_asgs(region, cluster_name):
+    """
+    Get the Auto Scaling Groups for a given cluster in a region.
+
+    Args:
+        region (str): AWS region.
+        cluster_name (str): Name of the cluster.
+
+    Returns:
+        list: List of Auto Scaling Groups or empty list if none found.
+    """
+    command = [
+        "aws",
+        "autoscaling",
+        "describe-auto-scaling-groups",
+        "--query",
+        f"AutoScalingGroups[? Tags[? (Key=='CLUSTER_ID') && Value=='{cluster_name}']].AutoScalingGroupName",
+        "--output",
+        "text",
+        "--region",
+        region,
+    ]
+    asgs_str = run_command(command)
+    return asgs_str.split("\t") if asgs_str else []
 
 
 def get_instances(ASG_NAME):
@@ -149,19 +217,32 @@ def main():
     for cmd in ["aws", "kubectl"]:
         check_dependency(cmd)
 
-    K8S_VERSION = input("Enter the target Kubernetes version (e.g., 1.24): ")
+    AWS_DEFAULT_REGION, CLUSTER_NAME = fetch_cluster_info()
+
+    WAIT = 60
+
+    asgs = get_asgs(AWS_DEFAULT_REGION, CLUSTER_NAME)
+    if not asgs:
+        print("No ASGs found.")
+        exit(1)
+
+    print("Found the following Auto Scaling Groups:")
+    for idx, asg in enumerate(asgs):
+        print(f"{idx + 1}. {asg}")
+
+    asg_number = int(get_input("Enter the number corresponding to the ASG"))
+    if 1 <= asg_number <= len(asgs):
+        selected_asg = asgs[asg_number - 1]
+    else:
+        print("Invalid ASG number.")
+        sys.exit(1)
+
+    K8S_VERSION = get_input("Enter the target Kubernetes version (e.g., 1.24)")
     if not K8S_VERSION:
         print("Error - Kubernetes version not provided.")
         sys.exit(1)
 
-    WAIT = 60
-    ASG_NAME = input("Enter the ASG name: ")
-
-    if not ASG_NAME:
-        print("Error - ASG name parameter not provided.")
-        sys.exit(1)
-
-    instances = get_instances(ASG_NAME)
+    instances = get_instances(selected_asg)
 
     for instance in instances:
         node_name = get_node_name(instance)
@@ -179,7 +260,6 @@ def main():
             print(f"Node {node_name} matches desired version {K8S_VERSION}. Skipping...")
             continue
 
-        # Prompt user to proceed with the current node or not
         print(f"Do you want to proceed with draining the node {node_name}?")
         if not prompt():
             print("Skipping this node.")
