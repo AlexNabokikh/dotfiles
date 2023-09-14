@@ -165,6 +165,7 @@ def main():
 
     for instance in instances:
         node_name = get_node_name(instance)
+        print(f"Node name: {node_name}")  # Displaying node name
 
         run_command(["kubectl", "get", "node", node_name, "--no-headers=true"])
 
@@ -178,7 +179,10 @@ def main():
             print(f"Node {node_name} matches desired version {K8S_VERSION}. Skipping...")
             continue
 
+        # Prompt user to proceed with the current node or not
+        print(f"Do you want to proceed with draining the node {node_name}?")
         if not prompt():
+            print("Skipping this node.")
             continue
 
         run_command(
