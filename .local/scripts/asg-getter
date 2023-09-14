@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import re
 import subprocess
 import sys
 
@@ -19,6 +20,27 @@ def check_dependency(command):
     except FileNotFoundError:
         print(f"Error: The command '{command}' is not found. Please install it before proceeding.")
         sys.exit(1)
+
+
+def fetch_cluster_info():
+    """
+    Fetches AWS cluster name and default region from `kubectl ctx -c`.
+
+    Returns:
+        tuple: AWS_DEFAULT_REGION and CLUSTER_NAME or None if an error occurs.
+    """
+    command = ["kubectl", "ctx", "-c"]
+    cluster_info = run_command(command)
+    if not cluster_info:
+        print("Failed to fetch cluster information.")
+        return None, None
+
+    match = re.search(r"arn:aws:eks:(.+?):\d+:cluster/(.+)$", cluster_info)
+    if match:
+        region, cluster_name = match.groups()
+        return region, cluster_name
+
+    return None, None
 
 
 def prompt(message):
@@ -178,8 +200,7 @@ if __name__ == "__main__":
     for cmd in ["aws", "kubectl"]:
         check_dependency(cmd)
 
-    AWS_DEFAULT_REGION = get_input("AWS Default Region (e.g., eu-central-1)")
-    CLUSTER_NAME = get_input("Cluster Name")
+    AWS_DEFAULT_REGION, CLUSTER_NAME = fetch_cluster_info()
 
     asgs = get_asgs(AWS_DEFAULT_REGION, CLUSTER_NAME)
     if not asgs:
