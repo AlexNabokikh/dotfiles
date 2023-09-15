@@ -219,7 +219,7 @@ def main():
 
     AWS_DEFAULT_REGION, CLUSTER_NAME = fetch_cluster_info()
 
-    WAIT = 60
+    WAIT = 90
 
     asgs = get_asgs(AWS_DEFAULT_REGION, CLUSTER_NAME)
     if not asgs:
@@ -246,7 +246,7 @@ def main():
 
     for instance in instances:
         node_name = get_node_name(instance)
-        print(f"Node name: {node_name}")  # Displaying node name
+        print(f"Node name: {node_name}")
 
         run_command(["kubectl", "get", "node", node_name, "--no-headers=true"])
 
@@ -269,7 +269,7 @@ def main():
             ["kubectl", "drain", "--ignore-daemonsets=true", "--delete-emptydir-data=true", "--force", node_name]
         )
 
-        print(f"Waiting {WAIT} seconds ...")
+        print(f"Waiting {WAIT} seconds...")
         time.sleep(WAIT)
 
         print(f"Checking for pods on node {node_name} ...")
@@ -277,11 +277,14 @@ def main():
         pod_data = json.loads(run_command(["kubectl", "get", "po", "-A", "-o", "json"]))
 
         for item in pod_data["items"]:
-            if item["spec"]["nodeName"] == node_name:
-                print(item["metadata"]["name"])
+            try:
+                if item["spec"]["nodeName"] == node_name:
+                    print(item["metadata"]["name"])
+            except KeyError:
+                print(f"KeyError: 'nodeName' not found in item: {item}")
 
-        print("Deleting node in 60 seconds... press Ctrl-C to abort")
-        time.sleep(60)
+        print(f"Deleting node in {WAIT} seconds... press Ctrl-C to abort")
+        time.sleep(WAIT)
         run_command(["kubectl", "delete", "node", node_name])
 
 
