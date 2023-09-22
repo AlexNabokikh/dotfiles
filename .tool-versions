@@ -1,6 +1,6 @@
 python 3.11.5
-nodejs 20.6.1
+nodejs 20.7.0
 java adoptopenjdk-11.0.20+101
-terragrunt 0.51.0
+terragrunt 0.51.4
 terraform 1.5.7
-awscli 2.13.19
+awscli 2.13.20

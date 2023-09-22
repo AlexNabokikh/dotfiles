@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+
+import os
+import shutil
+import subprocess
+
+# Define the path to aws-okta
+aws_okta_path = os.path.expanduser("~/.aws_okta/aws-okta")
+
+# Define the list of regions
+regions = ["eu-west-1", "eu-central-1"]
+
+
+def check_dependencies():
+    """Check if required dependencies are available."""
+    if not os.path.exists(aws_okta_path):
+        print("Error: AWS_OKTA not found")
+        exit(-1)
+
+    if not shutil.which("aws"):
+        print("Error: AWS provider not found")
+        exit(-1)
+
+
+def get_accounts():
+    """Get the list of accounts."""
+    accounts_process = subprocess.run([aws_okta_path, "list"], capture_output=True, text=True)
+    if accounts_process.returncode != 0:
+        print("Error: Failed to list accounts")
+        exit(-1)
+    return accounts_process.stdout.splitlines()
+
+
+def list_clusters(account, region):
+    """List clusters in the given account and region."""
+    clusters_process = subprocess.run(
+        ["aws", "eks", "list-clusters", "--region", region, "--profile", account], capture_output=True, text=True
+    )
+    if clusters_process.returncode != 0:
+        print(f"Error: Failed to list clusters on {account} {region}")
+        return []
+    return subprocess.run(
+        ["jq", "-r", ".clusters | .[]"], input=clusters_process.stdout, capture_output=True, text=True
+    ).stdout.splitlines()
+
+
+def main():
+    """Main function."""
+    try:
+        check_dependencies()
+
+        accounts = get_accounts()
+
+        for account in accounts:
+            for region in regions:
+                print(f"Switching for {account} {region}")
+
+                subprocess.run([aws_okta_path, "switch", account, region])
+
+                clusters = list_clusters(account, region)
+
+                if not clusters:
+                    print(f"No clusters found on {account} {region}")
+                    continue
+
+                print(f"Found Clusters on {account} {region}:")
+                print("\n".join(clusters))
+
+                # Update kubeconfig for each cluster
+                for cluster in clusters:
+                    subprocess.run(
+                        ["aws", "eks", "update-kubeconfig", "--name", cluster, "--region", region, "--profile", account]
+                    )
+
+    except KeyboardInterrupt:
+        print("\nScript interrupted by the user. Exiting.")
+
+
+if __name__ == "__main__":
+    main()
