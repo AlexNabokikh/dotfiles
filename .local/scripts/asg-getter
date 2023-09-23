@@ -24,12 +24,12 @@ def check_dependency(command):
 
 def fetch_cluster_info():
     """
-    Fetches AWS cluster name and default region from `kubectl ctx -c`.
+    Fetches AWS cluster name and default region from `kubectl config current-context`.
 
     Returns:
         tuple: AWS_DEFAULT_REGION and CLUSTER_NAME or None if an error occurs.
     """
-    command = ["kubectl", "ctx", "-c"]
+    command = ["kubectl", "config", "current-context"]
     cluster_info = run_command(command)
     if not cluster_info:
         print("Failed to fetch cluster information.")
