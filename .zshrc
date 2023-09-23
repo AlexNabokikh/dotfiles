@@ -85,8 +85,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # Aliases.
 alias aws-okta='. ~/.aws_okta/aws-okta'
-alias lg='lazygit'
+alias kupdate='kubect krew update && kubectl krew upgrade'
 alias ld='lazydocker'
+alias lg='lazygit'
 alias n='nvim'
 alias repo='cd $HOME/Documents/repositories'
 alias temp='cd $HOME/Downloads/temp'
