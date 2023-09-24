@@ -54,7 +54,7 @@ def main():
                 full_dir_path = os.path.join(root, dir)
 
                 # Skip if the directory is under a .terraform directory
-                if ".terraform" or ".terragrunt-cache" in full_dir_path.split("/"):
+                if ".terraform" in full_dir_path.split("/") or ".terragrunt-cache" in full_dir_path.split("/"):
                     continue
 
                 if is_git_directory(full_dir_path):
