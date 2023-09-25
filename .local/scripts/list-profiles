@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+import configparser
+import os
+
+
+def list_aws_profiles():
+    """
+    Reads the AWS configuration file and prints the names of the available profiles.
+    """
+    # Define the path to the AWS config file
+    config_file_path = os.path.join(os.path.expanduser("~"), ".aws", "config")
+
+    # Check if the config file exists
+    if not os.path.exists(config_file_path):
+        print("AWS config file not found at:", config_file_path)
+        return
+
+    # Initialize the ConfigParser
+    config = configparser.ConfigParser()
+
+    # Try to read the AWS config file
+    try:
+        config.read(config_file_path)
+    except configparser.Error as e:
+        print("Error reading AWS config file:", e)
+        return
+
+    # Iterate over the sections in the config file and print profile names
+    for section in config.sections():
+        if section.startswith("profile "):
+            print(section.split(" ", 1)[1])
+
+
+if __name__ == "__main__":
+    list_aws_profiles()

@@ -3,4 +3,5 @@ nodejs 20.7.0
 java adoptopenjdk-11.0.20+101
 terragrunt 0.51.4
 terraform 1.5.7
-awscli 2.13.20
+awscli 2.13.21
+saml2aws 2.36.11
