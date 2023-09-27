@@ -84,7 +84,6 @@ export FZF_DEFAULT_OPTS="
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Aliases.
-alias aws-okta='. ~/.aws_okta/aws-okta'
 alias kupdate='kubectl krew update && kubectl krew upgrade'
 alias ld='lazydocker'
 alias lg='lazygit'
