@@ -137,7 +137,7 @@ def get_asgs(region, cluster_name):
     return asgs_str.split("\t") if asgs_str else []
 
 
-def get_instances(ASG_NAME):
+def get_instances(asg_name, region):
     """
     Get a list of instance IDs for a given Auto Scaling Group (ASG).
 
@@ -153,7 +153,9 @@ def get_instances(ASG_NAME):
             "autoscaling",
             "describe-auto-scaling-groups",
             "--auto-scaling-group-name",
-            ASG_NAME,
+            asg_name,
+            "--region",
+            region,
             "--query",
             "AutoScalingGroups[].Instances[][InstanceId]",
             "--output",
@@ -162,7 +164,7 @@ def get_instances(ASG_NAME):
     ).split()
 
 
-def get_node_name(instance_id):
+def get_node_name(instance_id, region):
     """
     Get the node name corresponding to a given EC2 instance ID.
 
@@ -179,6 +181,8 @@ def get_node_name(instance_id):
             "describe-instances",
             "--instance-ids",
             instance_id,
+            "--region",
+            region,
             "--query",
             "Reservations[].Instances[].PrivateDnsName",
             "--output",
@@ -242,10 +246,10 @@ def main():
         print("Error - Kubernetes version not provided.")
         sys.exit(1)
 
-    instances = get_instances(selected_asg)
+    instances = get_instances(selected_asg, AWS_DEFAULT_REGION)
 
     for instance in instances:
-        node_name = get_node_name(instance)
+        node_name = get_node_name(instance, AWS_DEFAULT_REGION)
         print(f"Node name: {node_name}")
 
         run_command(["kubectl", "get", "node", node_name, "--no-headers=true"])
