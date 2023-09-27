@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
+import configparser
 import os
 import shutil
 import subprocess
-
-# Define the path to aws-okta
-aws_okta_path = os.path.expanduser("~/.aws_okta/aws-okta")
 
 # Define the list of regions
 regions = ["eu-west-1", "eu-central-1"]
@@ -13,9 +11,6 @@ regions = ["eu-west-1", "eu-central-1"]
 
 def check_dependencies():
     """Check if required dependencies are available."""
-    if not os.path.exists(aws_okta_path):
-        print("Error: AWS_OKTA not found")
-        exit(-1)
 
     if not shutil.which("aws"):
         print("Error: AWS provider not found")
@@ -23,12 +18,33 @@ def check_dependencies():
 
 
 def get_accounts():
-    """Get the list of accounts."""
-    accounts_process = subprocess.run([aws_okta_path, "list"], capture_output=True, text=True)
-    if accounts_process.returncode != 0:
-        print("Error: Failed to list accounts")
+    """Get the list of accounts by parsing the ~/.aws/config file."""
+    config_file_path = os.path.expanduser("~/.aws/config")
+
+    if not os.path.exists(config_file_path):
+        print("Error: AWS config file not found")
         exit(-1)
-    return accounts_process.stdout.splitlines()
+
+    # Initialize a ConfigParser object
+    config_parser = configparser.ConfigParser()
+
+    # Read the AWS config file
+    config_parser.read(config_file_path)
+
+    # Extract profile names from the sections of the config file
+    # AWS config file section names are in the format [profile profile-name]
+    # Extracting the profile-name part for each section
+    accounts = []
+    for section in config_parser.sections():
+        if section.startswith("profile "):
+            profile_name = section.split(" ", 1)[1]
+            accounts.append(profile_name)
+
+    if not accounts:
+        print("Error: No AWS profiles found")
+        exit(-1)
+
+    return accounts
 
 
 def list_clusters(account, region):
@@ -54,8 +70,6 @@ def main():
         for account in accounts:
             for region in regions:
                 print(f"Switching for {account} {region}")
-
-                subprocess.run([aws_okta_path, "switch", account, region])
 
                 clusters = list_clusters(account, region)
 
