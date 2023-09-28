@@ -273,9 +273,6 @@ def main():
             ["kubectl", "drain", "--ignore-daemonsets=true", "--delete-emptydir-data=true", "--force", node_name]
         )
 
-        print(f"Waiting {WAIT} seconds...")
-        time.sleep(WAIT)
-
         print(f"Checking for pods on node {node_name} ...")
 
         pod_data = json.loads(run_command(["kubectl", "get", "po", "-A", "-o", "json"]))
