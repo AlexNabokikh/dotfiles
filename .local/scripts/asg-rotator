@@ -269,7 +269,7 @@ def main():
             print("Skipping this node.")
             continue
 
-        run_command(
+        subprocess.run(
             ["kubectl", "drain", "--ignore-daemonsets=true", "--delete-emptydir-data=true", "--force", node_name]
         )
 
