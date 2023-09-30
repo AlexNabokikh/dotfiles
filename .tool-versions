@@ -1,6 +1,6 @@
 python 3.11.5
-nodejs 20.7.0
-terragrunt 0.51.5
+nodejs 20.8.0
+terragrunt 0.51.7
 terraform 1.5.7
-awscli 2.13.21
+awscli 2.13.22
 saml2aws 2.36.11
