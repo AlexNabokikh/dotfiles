@@ -56,9 +56,7 @@ def find_profile_name(config, account_number):
 def execute_saml2aws_command(profile_name):
     """Execute the saml2aws command with the found values."""
     try:
-        subprocess.run(
-            ["saml2aws", "exec", "--exec-profile", profile_name, os.getenv("SHELL", "/bin/bash")], check=True
-        )
+        subprocess.run(["saml2aws", "exec", "--exec-profile", profile_name, os.getenv("SHELL", "/bin/zsh")], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error in executing saml2aws command: {e}")
         exit(-1)
