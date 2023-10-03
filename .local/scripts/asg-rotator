@@ -201,17 +201,25 @@ def get_node_version(node_name):
     Returns:
         str: The Kubernetes version of the node.
     """
-    return run_command(
-        [
-            "kubectl",
-            "get",
-            "node",
-            node_name,
-            "-o",
-            "custom-columns=VERSION:.status.nodeInfo.kubeletVersion",
-            "--no-headers=true",
-        ]
-    )
+    try:
+        result = subprocess.run(
+            [
+                "kubectl",
+                "get",
+                "node",
+                node_name,
+                "-o",
+                "custom-columns=VERSION:.status.nodeInfo.kubeletVersion",
+                "--no-headers=true",
+            ],
+            check=True,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError:
+        return None
 
 
 def main():
@@ -252,8 +260,6 @@ def main():
         node_name = get_node_name(instance, AWS_DEFAULT_REGION)
         print(f"Node name: {node_name}")
 
-        run_command(["kubectl", "get", "node", node_name, "--no-headers=true"])
-
         node_version = get_node_version(node_name)
 
         if not node_version:
@@ -282,7 +288,7 @@ def main():
                 if item["spec"]["nodeName"] == node_name:
                     print(item["metadata"]["name"])
             except KeyError:
-                print(f"KeyError: 'nodeName' not found in item: {item}")
+                print(f"KeyError: 'nodeName' not found in item: {item['metadata']['name']}")
 
         print(f"Deleting node in {WAIT} seconds... press Ctrl-C to abort")
         time.sleep(WAIT)
