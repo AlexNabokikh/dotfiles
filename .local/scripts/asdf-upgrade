@@ -12,29 +12,65 @@ def log(message):
 
 def update_asdf_plugins():
     """Updates all asdf plugins."""
-    log("updating all asdf-plugin remotes...")
+    log("Updating all asdf-plugin remotes...")
     subprocess.run(["asdf", "plugin", "update", "--all"])
 
 
 def get_new_version(plugin):
     """Fetches the latest version of a given plugin."""
-    if plugin == "java":
-        return subprocess.getoutput(f'asdf latest "{plugin}" "adoptopenjdk-11"').strip()
-    else:
-        return subprocess.getoutput(f'asdf latest "{plugin}"').strip()
+    try:
+        if plugin == "java":
+            return subprocess.getoutput(f'asdf latest "{plugin}" "adoptopenjdk-11"').strip()
+        else:
+            return subprocess.getoutput(f'asdf latest "{plugin}"').strip()
+    except subprocess.CalledProcessError as e:
+        log(f"Failed to fetch latest version for {plugin}. Error: {str(e)}")
+        return None
+
+
+def install_plugin(plugin, version):
+    """Attempts to install the plugin and returns a boolean indicating success."""
+    try:
+        subprocess.run(["asdf", "install", plugin, version], check=True)
+        return True
+    except subprocess.CalledProcessError:
+        log(f"Failed to install {plugin} {version}. Skipping.")
+        return False
 
 
 def write_new_versions(infile, outfile):
     """Writes new versions to a given output file based on the input file."""
-    log("updating each plugin reference to the latest revision...")
+    log("Updating each plugin reference to the latest revision...")
     for line in infile:
         parts = line.strip().split(" ")
         if len(parts) != 2:
             log(f"Skipping malformed line: {line.strip()}")
             continue
-        plugin, _ = parts
+        plugin, current_version = parts
         new_version = get_new_version(plugin)
-        outfile.write(f"{plugin} {new_version}\n")
+
+        if new_version is None:
+            outfile.write(line)
+            continue
+
+        log(f"Plugin: {plugin}, Current Version: {current_version}, Latest Version: {new_version}")
+
+        if new_version != current_version:
+            while True:
+                yn = input(f"Do you wish to update {plugin} from {current_version} to {new_version}? (y/n): ")
+                if yn.lower().startswith("y"):
+                    if install_plugin(plugin, new_version):
+                        outfile.write(f"{plugin} {new_version}\n")
+                    else:
+                        outfile.write(f"{plugin} {current_version}\n")
+                    break
+                elif yn.lower().startswith("n"):
+                    outfile.write(f"{plugin} {current_version}\n")
+                    break
+                else:
+                    log("Please answer yes or no.")
+        else:
+            outfile.write(line)
 
 
 def main():
@@ -51,27 +87,10 @@ def main():
         log(f"An error occurred: {e}")
         return
 
-    # Create a backup and move the new file
     shutil.copy(tool_versions_path, backup_tool_versions_path)
     shutil.move(new_tool_versions_path, tool_versions_path)
 
-    log("old revision versions:")
-    subprocess.run(["cat", backup_tool_versions_path])
-
-    log("new revision versions:")
-    subprocess.run(["cat", tool_versions_path])
-
-    while True:
-        yn = input("do you wish to install all new revisions? (y/n): ")
-        if yn.lower().startswith("y"):
-            subprocess.run(["asdf", "install"])
-            break
-        elif yn.lower().startswith("n"):
-            exit()
-        else:
-            log("please answer yes or no.")
-
-    log("done, bye! 👋")
+    log("Update complete, bye! 👋")
 
 
 if __name__ == "__main__":
