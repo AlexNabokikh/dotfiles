@@ -5,7 +5,6 @@ import os
 import shutil
 import subprocess
 
-# Define the list of regions
 regions = ["eu-west-1", "eu-central-1"]
 
 
@@ -25,15 +24,10 @@ def get_accounts():
         print("Error: AWS config file not found")
         exit(-1)
 
-    # Initialize a ConfigParser object
     config_parser = configparser.ConfigParser()
 
-    # Read the AWS config file
     config_parser.read(config_file_path)
 
-    # Extract profile names from the sections of the config file
-    # AWS config file section names are in the format [profile profile-name]
-    # Extracting the profile-name part for each section
     accounts = []
     for section in config_parser.sections():
         if section.startswith("profile "):
@@ -80,7 +74,6 @@ def main():
                 print(f"Found Clusters on {account} {region}:")
                 print("\n".join(clusters))
 
-                # Update kubeconfig for each cluster
                 for cluster in clusters:
                     subprocess.run(
                         ["aws", "eks", "update-kubeconfig", "--name", cluster, "--region", region, "--profile", account]
