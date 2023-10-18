@@ -140,10 +140,10 @@ knownrm() {
 source "$ZSH/oh-my-zsh.sh"
 
 # Override Oh-my-zsh Aliases.
-alias ls='exa'                                 # default view
-alias ll='exa -bhl --group-directories-first'  # long list
-alias la='exa -abhl --group-directories-first' # all list
-alias lt='exa --tree --level=2'                # tree
+alias ls='exa --icons'                                 # default view
+alias ll='exa -bhl --group-directories-first --icons'  # long list
+alias la='exa -abhl --group-directories-first --icons' # all list
+alias lt='exa --tree --level=2 --icons'                # tree
 
 # Load Powerlevel10k config.
 # shellcheck disable=SC1090
