@@ -41,13 +41,6 @@
         "last_commit": "9783c7798dac82007ab85fb2d9f4185e5be104bf",
         "last_commit_time": "2022-12-17T15:38:06"
     },
-    "com.github.rapha149.ulauncher-deepl": {
-        "id": "com.github.rapha149.ulauncher-deepl",
-        "url": "https://github.com/Rapha149/ulauncher-deepl/",
-        "updated_at": "2023-06-27T10:35:27.835460",
-        "last_commit": "2dd4e692c5ed3b1c92258ae91354dcc370def909",
-        "last_commit_time": "2023-01-12T17:49:43"
-    },
     "com.github.eckhoff42.ulauncher-favorite-directories": {
         "id": "com.github.eckhoff42.ulauncher-favorite-directories",
         "url": "https://github.com/Eckhoff42/Ulauncher-favorite-directories",
