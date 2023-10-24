@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+
+
+def reset_git_repo(path):
+    """Reset a git repository to the latest commit on the current branch."""
+    old_cwd = os.getcwd()
+
+    try:
+        os.chdir(path)
+        subprocess.run(["git", "reset", "--hard", "HEAD"])
+    finally:
+        os.chdir(old_cwd)
+
+
+def find_git_dirs(base="."):
+    """Find all directories containing a .git directory and excluding .terragrunt-cache."""
+    for root, dirs, _ in os.walk(base):
+        if ".terragrunt-cache" in dirs:
+            dirs.remove(".terragrunt-cache")
+
+        if ".git" in dirs:
+            yield root
+
+
+def main():
+    """Main function."""
+    try:
+        for git_repo in find_git_dirs():
+            print(f"Resetting repository: {git_repo}")
+            reset_git_repo(git_repo)
+    except KeyboardInterrupt:
+        print("\nScript interrupted by the user. Exiting.")
+
+
+if __name__ == "__main__":
+    main()
