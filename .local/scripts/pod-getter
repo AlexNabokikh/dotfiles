@@ -1,4 +1,28 @@
 #!/usr/bin/env python3
+"""
+This script is a utility for retrieving and listing the names of all Kubernetes pods running on a specified node.
+It leverages the kubectl command-line tool to fetch detailed information about pods and then filters the data
+to display pods associated with the given node.
+
+Features:
+- Dependency Verification: Ensures that the necessary command-line tool (kubectl) is installed.
+- User Interaction: Prompts the user to enter the name of a Kubernetes node.
+- Pod Retrieval: Fetches a complete list of pods across all namespaces and filters them to show only those
+  running on the specified node.
+- Error Handling: Reports issues in fetching or processing pod data and handles user-initiated interruptions.
+
+Dependencies:
+- kubectl: For interacting with Kubernetes clusters.
+- Python 3 and standard libraries: json, subprocess, sys.
+
+Usage:
+The script is executed as a standalone Python script. The user is prompted to enter the name of the node,
+and the script then lists all pods running on that node.
+"""
+
+__author__ = "Alexander Nabokikh"
+__license__ = "GPL-2.0 license"
+
 
 import json
 import subprocess
