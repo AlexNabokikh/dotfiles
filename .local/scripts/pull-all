@@ -1,4 +1,27 @@
 #!/usr/bin/env python3
+"""
+This script automates the process of updating Git repositories located in a specified directory.
+It walks through the directory structure, identifies Git repositories, determines their main branch,
+and performs a 'git pull' operation to update each repository.
+
+Features:
+- Git Repository Identification: Checks directories to determine if they are Git repositories.
+- Main Branch Detection: Dynamically identifies the main branch for each repository.
+- Automated Git Pull: Executes a 'git pull' command for the main branch of each repository.
+- Directory Exclusion: Excludes directories related to Terraform and Terragrunt to avoid unnecessary processing.
+
+Dependencies:
+- Git: For managing and updating the repositories.
+- Python 3 and standard libraries: os, subprocess.
+
+Usage:
+The script is executed as a standalone Python script. It automatically searches for Git repositories 
+in a predefined directory (default is '~/Documents/repositories') and updates them.
+"""
+
+__author__ = "Alexander Nabokikh"
+__license__ = "GPL-2.0 license"
+
 
 import os
 import subprocess
