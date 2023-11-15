@@ -1,4 +1,29 @@
 #!/usr/bin/env python3
+"""
+This script automates the process of updating software versions managed by the 'asdf' version manager. 
+It updates all asdf plugins, checks for the latest versions of the software specified in the '.tool-versions'
+file, and prompts the user to update each tool to its latest version if available.
+
+Features:
+- Logging: Provides informative console output during the execution process.
+- Plugin Updates: Updates all asdf plugins to their latest remote versions.
+- Version Fetching: Retrieves the latest available versions of each tool managed by asdf.
+- Conditional Installation: Offers to update each tool and proceeds based on user input.
+- File Management: Writes the new tool versions to a temporary file and then replaces the original
+  '.tool-versions' file, with a backup created for safety.
+
+Dependencies:
+- 'asdf' version manager: For managing and updating versions of various tools.
+- Python 3 and standard libraries: os, shutil, subprocess.
+
+Usage:
+The script is executed as a standalone Python script. It guides the user through the process, 
+requiring their input to confirm updates for each tool.
+"""
+
+__author__ = "Alexander Nabokikh"
+__license__ = "GPL-2.0 license"
+
 
 import os
 import shutil
