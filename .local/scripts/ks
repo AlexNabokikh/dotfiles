@@ -1,4 +1,30 @@
 #!/usr/bin/env python3
+"""
+The script is designed to run in environments where Kubernetes clusters are managed through AWS
+and access is controlled via SAML authentication. It automates the process of logging into the
+appropriate AWS account and setting up the shell environment for further interactions with AWS services.
+
+Key functionalities include:
+- Checking if 'saml2aws' is installed on the system.
+- Retrieving the current Kubernetes context and extracting the associated AWS account number.
+- Parsing the AWS configuration file to find the relevant profile.
+- Finding the correct profile name by matching the account number in the AWS configuration.
+- Executing the 'saml2aws' command with the identified profile to set up the shell environment.
+
+Dependencies:
+- saml2aws: A tool for logging into an AWS account.
+- kubectl: A command-line tool for interacting with Kubernetes clusters.
+- Python 3 and standard libraries: configparser, os, re, subprocess.
+
+Usage:
+The script is executed as a standalone Python script. It does not take any command-line arguments
+and relies on the correct configuration of the AWS and Kubernetes environments on the user's system.
+
+"""
+
+
+__author__ = "Alexander Nabokikh"
+__license__ = "GPL-2.0 license"
 
 import configparser
 import os
