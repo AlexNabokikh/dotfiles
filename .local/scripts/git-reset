@@ -1,4 +1,28 @@
 #!/usr/bin/env python3
+"""
+This script is designed to automate the process of resetting multiple Git repositories to their latest
+commit on the current branch. It is especially useful in environments where multiple repositories are
+managed simultaneously and require frequent synchronization.
+
+Features:
+- Git Repository Reset: Resets any identified Git repository to the latest commit on its current branch.
+- Directory Traversal: Scans a specified base directory (defaulting to the current directory) to find 
+  all directories containing a Git repository.
+- Terragrunt Cache Exclusion: Skips over directories named '.terragrunt-cache', which are typically 
+  used for caching in Terraform workflows.
+
+Dependencies:
+- Git: For managing and resetting the repositories.
+- Python 3 and standard libraries: os, subprocess.
+
+Usage:
+The script is executed as a standalone Python script. It requires no additional input from the user,
+automatically finding and resetting Git repositories in the current or specified directory.
+"""
+
+__author__ = "Alexander Nabokikh"
+__license__ = "GPL-2.0 license"
+
 
 import os
 import subprocess
