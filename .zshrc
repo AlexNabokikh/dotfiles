@@ -83,6 +83,9 @@ export FZF_DEFAULT_OPTS="
 # Set lazygit config location
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# Set 1 hours session duraion for sam2aws
+export SAML2AWS_SESSION_DURATION=3600
+
 # Aliases.
 alias kupdate='kubectl krew update && kubectl krew upgrade'
 alias ld='lazydocker'
