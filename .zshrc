@@ -142,6 +142,9 @@ knownrm() {
 # shellcheck disable=SC1091
 source "$ZSH/oh-my-zsh.sh"
 
+# Load Nix
+. "/home/$USER/.nix-profile/etc/profile.d/nix.sh"
+
 # Override Oh-my-zsh Aliases.
 alias ls='exa --icons'                                 # default view
 alias ll='exa -bhl --group-directories-first --icons'  # long list
@@ -152,11 +155,9 @@ alias lt='exa --tree --level=2 --icons'                # tree
 # shellcheck disable=SC1090
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# fzf key-bindings
 # shellcheck disable=SC1090
-prefix=$(brew --prefix)
-version=$(fzf --version | awk '{print $1}')
-[ -f "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh" ] && \
-  source "${prefix}/Cellar/fzf/${version}/shell/key-bindings.zsh"
+source ~/.nix-profile/share/fzf/key-bindings.zsh
 
 # key-bindings
 # Set history search via up/down keys.
