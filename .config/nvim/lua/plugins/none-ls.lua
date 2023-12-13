@@ -28,7 +28,6 @@ return {
         nls.builtins.formatting.terraform_fmt,
         -- linters
         nls.builtins.diagnostics.ansiblelint,
-        nls.builtins.diagnostics.checkmake,
         nls.builtins.diagnostics.golangci_lint,
         nls.builtins.diagnostics.hadolint,
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }),
