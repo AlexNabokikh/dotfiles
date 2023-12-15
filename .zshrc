@@ -29,9 +29,6 @@ fi
 # GPG.
 export GPG_TTY=$TTY
 
-# Java.
-export JAVA_HOME=/usr/local/opt/openjdk@11
-
 # Oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 # shellcheck disable=SC2034
