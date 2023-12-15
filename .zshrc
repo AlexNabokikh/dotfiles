@@ -157,7 +157,10 @@ alias lt='exa --tree --level=2 --icons'                # tree
 
 # fzf key-bindings
 # shellcheck disable=SC1090
-source ~/.nix-profile/share/fzf/key-bindings.zsh
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 
 # key-bindings
 # Set history search via up/down keys.
