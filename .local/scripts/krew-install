@@ -36,7 +36,7 @@ def read_plugins(file_name):
 def install_plugin(plugin):
     """Install a plugin using kubectl krew."""
     try:
-        subprocess.run(["kubectl", "krew", "install", plugin], check=True)
+        subprocess.run(["krew", "install", plugin], check=True)
     except subprocess.CalledProcessError:
         print(f"Failed to install plugin: {plugin}")
 
