@@ -18,6 +18,7 @@ return {
     },
     ensure_installed = {
       "bash",
+      "c",
       "dockerfile",
       "go",
       "hcl",
@@ -28,7 +29,9 @@ return {
       "make",
       "markdown",
       "markdown_inline",
+      "nix",
       "python",
+      "regex",
       "terraform",
       "vim",
       "vimdoc",
