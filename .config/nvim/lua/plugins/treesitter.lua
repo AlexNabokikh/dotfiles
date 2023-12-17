@@ -23,6 +23,7 @@ return {
       "go",
       "hcl",
       "json",
+      "jsonc",
       "lua",
       "luadoc",
       "luap",
