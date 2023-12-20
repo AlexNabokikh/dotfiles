@@ -148,29 +148,11 @@ alias ll='exa -bhl --group-directories-first --icons'  # long list
 alias la='exa -abhl --group-directories-first --icons' # all list
 alias lt='exa --tree --level=2 --icons'                # tree
 
-# Load Powerlevel10k config.
-# shellcheck disable=SC1090
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# fzf key-bindings
-# shellcheck disable=SC1090
-if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
-fi
-
-# key-bindings
-# Set history search via up/down keys.
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
-# Set opt+c on Mac to run fzf-cd-widget
-bindkey "ć" fzf-cd-widget
-# Set ctrl+f to run cd-to-project
-bindkey -s ^f "cd-to-project\n"
-# Set V to edit command line in vim
-bindkey -M vicmd 'V' edit-command-line
-# Re-Set alt+backspace to delete word
-bindkey '^[^?' backward-kill-word
+# Load zsh configs
+for conf in "$HOME/.config/zsh/"*.zsh; do
+  source "$conf"
+done
+unset conf
 
 # Prevent duplicates of PATH variables
 typeset -U PATH
