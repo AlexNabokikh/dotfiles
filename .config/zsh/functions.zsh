@@ -1,7 +1,7 @@
 # Functions
 # cd to the project
 cd-to-project() {
-  selected=$(find ~/Documents/repositories $GOPATH/src/github.com/AlexNabokikh/ -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
+  selected=$(find ~/Documents/repositories -mindepth 1 -maxdepth 2 -type d -not -iwholename '*.git*' | fzf)
   if [ -n "$selected" ]; then
     tmux new-window -c "$selected" -n "$(basename "$selected")" || exit
   fi
