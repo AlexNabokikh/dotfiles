@@ -8,6 +8,7 @@ return {
         -- code actions
         nls.builtins.code_actions.shellcheck,
         -- formatters
+        nls.builtins.formatting.alejandra,
         nls.builtins.formatting.black.with({
           extra_args = { "--line-length", "120" },
         }),
