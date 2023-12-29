@@ -1,8 +1,10 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
+  {
+    "williamboman/mason.nvim",
+    -- Disable Mason in favor of Nix packages
+    enabled = false,
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "ansible-language-server",
         "ansible-lint",
         "bash-language-server",
@@ -26,7 +28,7 @@ return {
         "terraform-ls",
         "tflint",
         "yaml-language-server",
-			})
-		end,
-	},
+      })
+    end,
+  },
 }
