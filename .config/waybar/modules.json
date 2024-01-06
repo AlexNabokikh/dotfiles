@@ -15,40 +15,23 @@
   },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 18,
+    "icon-size": 20,
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close"
-  },
-  "custom/appmenu": {
-    "format": "Apps",
-    "on-click": "ulauncher-toggle",
-    "tooltip": false
   },
   "custom/exit": {
     "format": "",
     "on-click": "wlogout",
     "tooltip": false
   },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
-  },
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+    "format": "{:%b %d %H:%M}",
+    "on-click": "gnome-calendar"
   },
   "hyprland/language": {
-    "format": "/ K {short}"
+    "format": "{short}"
   },
   "network": {
     "format": "{ifname}",
@@ -87,16 +70,10 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": [
         "",
-        " ",
-        " "
+        "",
+        ""
       ]
     },
     "on-click": "pavucontrol"
@@ -107,10 +84,5 @@
     "format-off": "",
     "interval": 30,
     "on-click": "blueman-manager"
-  },
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
   }
 }
