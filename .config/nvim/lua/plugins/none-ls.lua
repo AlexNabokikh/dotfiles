@@ -14,6 +14,7 @@ return {
         }),
         nls.builtins.formatting.prettier.with({
           filetypes = {
+            "css",
             "markdown",
             "yaml.ansible",
             "yaml.docker-compose",
