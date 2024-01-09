@@ -13,29 +13,34 @@
       "*": 5
     }
   },
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 20,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close"
-  },
   "custom/exit": {
     "format": "",
     "on-click": "wlogout",
     "tooltip": false
   },
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-    "format": "{:%b %d %H:%M}",
-    "on-click": "gnome-calendar"
+    "on-click": "gnome-calendar",
+    "format": "{:  %I:%M %p    %a, %b%e}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>"
+  },
+  "backlight": {
+    "device": "amd_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
   },
   "hyprland/language": {
     "format": "{short}"
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "   {signalStrength}%",
+    "format-wifi": " ",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "Disconnected",
     "tooltip-format": " {ifname} via {gwaddri}",
@@ -47,42 +52,68 @@
   },
   "battery": {
     "states": {
+      "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 20
     },
-    "format": "{icon}   {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-alt": "{time} {icon}",
     "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
     ]
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "tooltip": false,
+    "format-muted": " Muted",
+    "on-click": "pamixer -t",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5,
+    "on-click-right": "pavucontrol",
     "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
       "default": [
         "",
         "",
         ""
       ]
     },
-    "on-click": "pavucontrol"
-  },
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "",
-    "format-off": "",
-    "interval": 30,
-    "on-click": "blueman-manager"
+    "pulseaudio#microphone": {
+      "format": "{format_source}",
+      "format-source": " {volume}%",
+      "format-source-muted": " Muted",
+      "on-click": "pamixer --default-source -t",
+      "on-scroll-up": "pamixer --default-source -i 5",
+      "on-scroll-down": "pamixer --default-source -d 5",
+      "ignored-sinks": [
+        "Easy Effects Sink"
+      ],
+      "scroll-step": 5
+    },
+    "bluetooth": {
+      "format": "",
+      "format-disabled": "",
+      "format-off": "",
+      "interval": 30,
+      "on-click": "blueman-manager"
+    }
   }
 }

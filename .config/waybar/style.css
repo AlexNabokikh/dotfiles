@@ -1,41 +1,24 @@
 * {
+  border: none;
+  border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-  min-height: 0;
-  font-size: 100%;
-  padding: 0px;
-  margin-top: 1px;
-  margin-bottom: 1px;
+
+  font-size: 14.3px;
+  min-height: 10px;
 }
 
 window#waybar {
-  background-color: transparent;
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-radius: 0px;
-  margin: 0px 0px;
-}
-
-window#waybar.empty #window {
-  background: rgba(12, 12, 12, 0);
-}
-
-window#waybar.hidden {
-  opacity: 0.1;
+  background: rgba(21, 18, 27, 0);
+  color: #cdd6f4;
 }
 
 tooltip {
   background: #1e1e2e;
-  opacity: 0.8;
-  border-radius: 8px;
-  border-width: 2px;
+  border-radius: 10px;
+  border-width: 1px;
   border-style: solid;
   border-color: #11111b;
-}
-
-tooltip label {
-  color: #cdd6f4;
 }
 
 #workspaces button {
@@ -71,33 +54,16 @@ tooltip label {
 #pulseaudio,
 #bluetooth,
 #taskbar,
+#backlight,
 #workspaces,
 #custom-exit {
   padding: 3px 10px;
   color: #e5e5e5;
   border-radius: 8px;
-  background-color: rgba(50, 50, 50, 0.1);
+  background-color: rgba(50, 50, 50, 0.3); /* increased opacity */
   border: 1px solid #b4befe;
   margin-left: 3px;
   margin-right: 3px;
-}
-
-#clock {
-  color: #90ee90;
-}
-
-#language {
-  color: #90ee90;
-}
-
-#battery {
-  color: #c0caf5;
-}
-
-#battery.charging,
-#battery.full,
-#battery.plugged {
-  color: #26a65b;
 }
 
 #battery.critical:not(.charging) {
@@ -109,31 +75,5 @@ tooltip label {
   animation-direction: alternate;
 }
 
-#network {
-  color: #b48ead;
-}
-
-#network.disconnected {
-  color: #f53c3c;
-}
-
-#pulseaudio {
-  color: #ffd580;
-}
-
-#bluetooth {
-  color: #7287fd;
-}
-
-#bluetooth.disconnected {
-  color: #f53c3c;
-}
-
-#taskbar button.active {
-  padding: 3px 3px;
-  background-color: #7f849c;
-}
-
 #custom-exit {
-  color: #f38ba8;
 }

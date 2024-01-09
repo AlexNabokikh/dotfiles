@@ -7,8 +7,7 @@
     "~/.config/waybar/modules.json"
   ],
   "modules-left": [
-    "hyprland/workspaces",
-    "wlr/taskbar"
+    "hyprland/workspaces"
   ],
   "modules-center": [
     "clock"
@@ -17,7 +16,9 @@
     "hyprland/language",
     "network",
     "bluetooth",
+    "backlight",
     "pulseaudio",
+    "pulseaudio#microphone",
     "battery",
     "custom/exit"
   ]
