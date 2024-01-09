@@ -14,12 +14,10 @@
   ],
   "modules-right": [
     "hyprland/language",
-    "network",
-    "bluetooth",
     "backlight",
+    "bluetooth",
+    "network",
     "pulseaudio",
-    "pulseaudio#microphone",
-    "battery",
-    "custom/exit"
+    "battery"
   ]
 }
