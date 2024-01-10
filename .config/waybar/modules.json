@@ -15,7 +15,7 @@
   },
   "clock": {
     "on-click": "gnome-calendar",
-    "format": "{:%b %e %I:%M %p}",
+    "format": "{:%b %e %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>"
   },
   "hyprland/language": {
@@ -67,12 +67,6 @@
     "scroll-step": 5,
     "on-click-right": "pavucontrol",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": [
         "",
         "",
@@ -81,6 +75,8 @@
     },
     "bluetooth": {
       "format": "",
+      "format-connected": "",
+      "format-disconnected": "",
       "format-disabled": "",
       "format-off": "",
       "interval": 30,
