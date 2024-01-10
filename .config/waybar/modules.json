@@ -13,27 +13,10 @@
       "*": 5
     }
   },
-  "custom/exit": {
-    "format": "",
-    "on-click": "wlogout",
-    "tooltip": false
-  },
   "clock": {
     "on-click": "gnome-calendar",
-    "format": "{:  %I:%M %p    %a, %b%e}",
+    "format": "{:%b %e %I:%M %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>"
-  },
-  "backlight": {
-    "device": "amd_backlight",
-    "format": "{icon}",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ],
-    "on-scroll-up": "brightnessctl set 1%+",
-    "on-scroll-down": "brightnessctl set 1%-",
-    "min-length": 6
   },
   "hyprland/language": {
     "format": "{short}"
@@ -43,7 +26,7 @@
     "format-wifi": " ",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "Disconnected",
-    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format": " {ifname} via {gateway}",
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
@@ -75,7 +58,7 @@
     ]
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}",
     "tooltip": false,
     "format-muted": " Muted",
     "on-click": "pamixer -t",
@@ -97,7 +80,7 @@
       ]
     },
     "bluetooth": {
-      "format": "",
+      "format": "",
       "format-disabled": "",
       "format-off": "",
       "interval": 30,

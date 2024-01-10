@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "margin-left": 0,
-  "margin-right": 0,
+  "margin-right": 10,
   "spacing": 0,
   "include": [
     "~/.config/waybar/modules.json"
@@ -14,9 +14,8 @@
   ],
   "modules-right": [
     "hyprland/language",
-    "backlight",
-    "bluetooth",
     "network",
+    "bluetooth",
     "pulseaudio",
     "battery"
   ]
