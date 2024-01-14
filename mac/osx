@@ -273,7 +273,7 @@ printf "Please log out and log back in to make all settings take effect.\n"
 # iTerm2 settings                                                             #
 ###############################################################################
 # Specify the preferences directory
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.config/"
 
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
