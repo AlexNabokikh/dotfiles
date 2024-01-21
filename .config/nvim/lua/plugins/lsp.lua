@@ -39,6 +39,7 @@ return {
             },
           },
         },
+        nil_ls = {},
         pyright = {
           settings = {
             python = {
