@@ -71,10 +71,6 @@
     {
       "wmClass": "Guake",
       "mode": "float"
-    },
-    {
-      "wmClass": "zoom",
-      "mode": "float"
     }
   ]
 }
