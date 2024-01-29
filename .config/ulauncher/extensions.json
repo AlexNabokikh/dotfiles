@@ -30,9 +30,9 @@
     "com.github.ulauncher.ulauncher-emoji": {
         "id": "com.github.ulauncher.ulauncher-emoji",
         "url": "https://github.com/Ulauncher/ulauncher-emoji",
-        "updated_at": "2023-10-23T09:25:24.343612",
-        "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
-        "last_commit_time": "2021-08-08T19:19:59"
+        "updated_at": "2024-01-29T11:51:34.216205",
+        "last_commit": "827cfe5e1d2f89f742f811f981759787b0654fa9",
+        "last_commit_time": "2023-11-04T18:37:13"
     },
     "com.github.nortmas.chrome-bookmarks": {
         "id": "com.github.nortmas.chrome-bookmarks",
@@ -51,7 +51,7 @@
     "com.github.alexnabokikh.ulauncher-notion-search": {
         "id": "com.github.alexnabokikh.ulauncher-notion-search",
         "url": "https://github.com/AlexNabokikh/ulauncher-notion-search",
-        "updated_at": "2024-01-27T10:17:27.748881",
+        "updated_at": "2024-01-27T15:51:15.183793",
         "last_commit": "f801ae19aadb5ba63361c30eec29579818a32da4",
         "last_commit_time": "2024-01-27T09:17:08"
     }
