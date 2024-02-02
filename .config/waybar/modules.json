@@ -74,9 +74,9 @@
       ]
     },
     "bluetooth": {
-      "format": "",
+      "format": " {device_battery_percentage}",
       "format-off": "󰂲",
-      "on-click": "blueberry",
+      "on-click": "blueman-manager",
       "tooltip-format": "{status}"
     }
   }
