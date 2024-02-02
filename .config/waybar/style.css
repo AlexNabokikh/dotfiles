@@ -1,49 +1,63 @@
+/* Base styles for all elements */
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
-  font-size: 14px;
-  min-height: 10px;
+  border: none; /* Removing borders for a cleaner look */
+  border-radius: 0; /* Uniform border-radius */
+  font-family: "Cantarell", sans-serif; /* Switching to standard GNOME font */
+  font-weight: bold; /* Uniform font weight */
+  font-size: 14px; /* Base font size */
+  min-height: 10px; /* Minimum height for elements */
 }
 
+/* Styling for the Waybar window */
 window#waybar {
-  background: rgba(21, 18, 27, 0);
-  color: #c2c5d4;
+  background: rgba(21, 18, 27, 0); /* Transparent background */
+  color: #c2c5d4; /* Base text color */
 }
 
+/* Tooltip customization */
 tooltip {
-  background: #1e1e2e;
-  border-radius: 10px;
-  border: none;
+  background: #1e1e2e; /* Tooltip background */
+  border-radius: 10px; /* Rounded corners for tooltips */
 }
 
+/* Workspace buttons */
 #workspaces button {
-  padding: 5px;
-  color: #c2c5d4;
-  background-color: transparent;
-  box-shadow: inset 0 -3px transparent;
-  border: none;
-  margin: 0 3px;
+  padding: 5px; /* Uniform padding */
+  color: #c2c5d4; /* Consistent text color */
+  background-color: transparent; /* Clear background */
+  margin: 0 3px; /* Margins for spacing */
 }
 
+/* Workspace button states */
 #workspaces button.focused,
 #workspaces button.urgent {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e1e1e1;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Background for focused/urgent */
+  color: #e1e1e1; /* Text color for focused/urgent */
 }
 
 #workspaces button.active {
-  color: #c2c5d4;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
+  color: #ffffff; /* Active button text color changed to white */
+  background-color: rgba(255, 255, 255, 0.3); /* Active button background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border for active buttons */
+  border-radius: 3px; /* Rounded corners for active buttons */
 }
 
+/* Style for empty workspace buttons */
+#workspaces button.empty {
+  opacity: 0.5; /* Making empty workspaces more transparent */
+}
+
+/* Taskbar button margins */
 #taskbar button {
-  margin: 0 3px;
+  margin: 0 3px; /* Consistent margin */
 }
 
+/* Styling for elements like clock, language, etc. */
 #clock,
 #language,
 #battery,
@@ -52,17 +66,17 @@ tooltip {
 #bluetooth,
 #taskbar,
 #workspaces {
-  padding: 3px 8px;
-  color: #c2c5d4;
-  background-color: rgba(50, 50, 50, 0);
-  border: none;
-  margin: 0px;
+  padding: 3px 8px; /* Uniform padding */
+  color: #c2c5d4; /* Consistent text color */
+  background-color: rgba(50, 50, 50, 0); /* Transparent background */
+  margin: 0px; /* No margin */
 }
 
+/* Font size adjustment for specific elements */
 #language,
 #network,
 #pulseaudio,
 #bluetooth,
 #battery {
-  font-size: 15px;
+  font-size: 15px; /* Slightly larger font size for clarity */
 }

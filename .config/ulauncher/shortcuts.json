@@ -13,7 +13,7 @@
         "id": "0eb1c1b7-8e36-4a13-abd4-0b6bb1f7bdb9",
         "name": "Quit All Applications",
         "keyword": "quit",
-        "cmd": "#!/usr/bin/env bash\n\nWIN_IDs=$(wmctrl -l | grep -vwE \"Desktop$|xfce4-panel$\" | cut -f1 -d' ')\n\nfor i in $WIN_IDs; do wmctrl -ic \"$i\"; done\n\nwhile test \"$WIN_IDs\"; do\n\tsleep 0.1\n\tWIN_IDs=$(wmctrl -l | grep -vwE \"Desktop$|xfce4-panel$\" | cut -f1 -d' ')\ndone",
+        "cmd": "#!/usr/bin/env bash\n\nHYPRCMDS=$(hyprctl -j clients | jq -j '.[] | \"dispatch closewindow address:\\(.address); \"')\nhyprctl --batch 2>&1",
         "icon": "~/.config/ulauncher/quit.png",
         "is_default_search": false,
         "run_without_argument": true,
