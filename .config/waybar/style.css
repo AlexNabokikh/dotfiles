@@ -4,7 +4,7 @@
   border-radius: 0; /* Uniform border-radius */
   font-family: "Cantarell", sans-serif; /* Switching to standard GNOME font */
   font-weight: bold; /* Uniform font weight */
-  font-size: 14px; /* Base font size */
+  font-size: 13px; /* Base font size */
   min-height: 10px; /* Minimum height for elements */
 }
 
@@ -42,8 +42,7 @@ tooltip {
 
 #workspaces button.active {
   color: #ffffff; /* Active button text color changed to white */
-  background-color: rgba(255, 255, 255, 0.3); /* Active button background */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Border for active buttons */
+  background-color: rgba(255, 255, 255, 0.4); /* Active button background */
   border-radius: 3px; /* Rounded corners for active buttons */
 }
 
@@ -78,5 +77,5 @@ tooltip {
 #pulseaudio,
 #bluetooth,
 #battery {
-  font-size: 15px; /* Slightly larger font size for clarity */
+  font-size: 14px; /* Slightly larger font size for clarity */
 }
