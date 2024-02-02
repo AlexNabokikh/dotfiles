@@ -72,12 +72,12 @@
         "",
         ""
       ]
-    },
-    "bluetooth": {
-      "format": " {device_battery_percentage}",
-      "format-off": "󰂲",
-      "on-click": "blueman-manager",
-      "tooltip-format": "{status}"
     }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "on-click": "blueman-manager",
+    "tooltip-format": "Status: {status}\nCharge: {device_battery_percentage}%"
   }
 }
