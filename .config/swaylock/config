@@ -3,8 +3,9 @@ ignore-empty-password
 font=Cantarell
 image=~/Documents/repositories/toolkit/wallpapers/oleg-chursin.jpg
 fade-in=0.2
-effect-blur=15x2
+effect-blur=15x20
 effect-scale=0.1
+effect-vignette=0.5:0.5
 indicator
 indicator-radius=110
 indicator-thickness=10
