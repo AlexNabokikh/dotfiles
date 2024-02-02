@@ -75,12 +75,9 @@
     },
     "bluetooth": {
       "format": "",
-      "format-connected": "",
-      "format-disconnected": "",
-      "format-disabled": "",
-      "format-off": "",
-      "interval": 30,
-      "on-click": "blueman-manager"
+      "format-off": "󰂲",
+      "on-click": "blueberry",
+      "tooltip-format": "{status}"
     }
   }
 }
