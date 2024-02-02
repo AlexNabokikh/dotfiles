@@ -13,7 +13,7 @@
         "id": "0eb1c1b7-8e36-4a13-abd4-0b6bb1f7bdb9",
         "name": "Quit All Applications",
         "keyword": "quit",
-        "cmd": "#!/usr/bin/env bash\n\nHYPRCMDS=$(hyprctl -j clients | jq -j '.[] | \"dispatch closewindow address:\\(.address); \"')\nhyprctl --batch 2>&1",
+        "cmd": "#!/usr/bin/env bash\nHYPRCMDS=$(hyprctl -j clients | jq -j '.[] | \"dispatch closewindow address:\\(.address); \"')\nhyprctl --batch \"$HYPRCMDS\" 2>&1",
         "icon": "~/.config/ulauncher/quit.png",
         "is_default_search": false,
         "run_without_argument": true,
