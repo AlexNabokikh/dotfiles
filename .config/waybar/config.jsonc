@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "margin-left": 0,
-  "margin-right": 10,
+  "margin-right": 0,
   "spacing": 0,
   "include": [
     "~/.config/waybar/modules.json"

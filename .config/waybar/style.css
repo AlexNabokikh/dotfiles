@@ -1,72 +1,77 @@
-/* Base styles for all elements */
 * {
-  border: none; /* Removing borders for a cleaner look */
-  border-radius: 0; /* Uniform border-radius */
-  font-family: "Roboto", sans-serif; /* Switching to standard GNOME font */
-  font-weight: bold; /* Uniform font weight */
-  font-size: 14px; /* Base font size */
-  min-height: 10px; /* Minimum height for elements */
+  border-radius: 0;
+  font-family: "JetBrains Mono Nerd Font", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 0px;
 }
 
-/* Styling for the Waybar window */
 window#waybar {
-  background: rgba(21, 18, 27, 0); /* Transparent background */
-  color: #c2c5d4; /* Base text color */
+  background: rgba(21, 18, 27, 0);
+  color: #c2c5d4;
 }
 
-/* Tooltip customization */
 tooltip {
-  background: #1e1e2e; /* Tooltip background */
-  border-radius: 10px; /* Rounded corners for tooltips */
+  background: #1e1e2e;
+  border-radius: 10px;
 }
 
-/* Workspace buttons */
 #workspaces button {
-  padding: 5px; /* Uniform padding */
-  color: #c2c5d4; /* Consistent text color */
-  background-color: transparent; /* Clear background */
-  margin: 0 3px; /* Margins for spacing */
+  padding: 3px;
+  color: #c2c5d4;
+  background-color: transparent;
+  margin: 0 2px;
 }
 
-/* Workspace button states */
 #workspaces button.focused,
 #workspaces button.urgent {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Background for focused/urgent */
-  color: #e1e1e1; /* Text color for focused/urgent */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e1e1e1;
 }
 
 #workspaces button.active {
-  color: #ffffff; /* Active button text color changed to white */
-  background-color: rgba(255, 255, 255, 0.4); /* Active button background */
-  border-radius: 3px; /* Rounded corners for active buttons */
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
 }
 
-/* Style for empty workspace buttons */
 #workspaces button.empty {
-  opacity: 0.5; /* Making empty workspaces more transparent */
+  opacity: 0.5;
 }
 
-/* Taskbar button margins */
-#taskbar button {
-  margin: 0 3px; /* Consistent margin */
-}
-
-/* Styling for elements like clock, language, etc. */
 #clock,
 #language,
 #battery,
 #network,
 #pulseaudio,
 #bluetooth,
-#taskbar,
 #workspaces {
-  padding: 3px 8px; /* Uniform padding */
-  color: #c2c5d4; /* Consistent text color */
-  background-color: rgba(50, 50, 50, 0); /* Transparent background */
-  margin: 0px; /* No margin */
+  padding: 3px 8px;
+  color: #c2c5d4;
+  background-color: #24273a;
+  border: 1px solid #b7bdf8;
+  border-radius: 8px;
+  margin: 0px;
+}
+
+#language {
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+}
+#network,
+#bluetooth,
+#pulseaudio {
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+}
+
+#workspaces {
+  margin-left: 3px;
+}
+
+#battery {
+  border-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+  margin-right: 3px;
 }
