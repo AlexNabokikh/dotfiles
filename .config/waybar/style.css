@@ -1,13 +1,14 @@
 * {
   border-radius: 0;
-  font-family: "JetBrains Mono Nerd Font", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
   min-height: 0px;
+  background-color: transparent;
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
+  background: rgba(21, 18, 27, 0.5);
   color: #c2c5d4;
 }
 
@@ -48,22 +49,7 @@ tooltip {
 #workspaces {
   padding: 3px 8px;
   color: #c2c5d4;
-  background-color: #24273a;
-  border: 1px solid #b7bdf8;
-  border-radius: 8px;
   margin: 0px;
-}
-
-#language {
-  border-radius: 8px 0px 0px 8px;
-  border-right: 0px;
-}
-#network,
-#bluetooth,
-#pulseaudio {
-  border-right: 0px;
-  border-left: 0px;
-  border-radius: 0px;
 }
 
 #workspaces {
@@ -71,7 +57,5 @@ tooltip {
 }
 
 #battery {
-  border-left: 0px;
-  border-radius: 0px 8px 8px 0px;
   margin-right: 3px;
 }
