@@ -58,7 +58,7 @@
     ]
   },
   "pulseaudio": {
-    "format": "<span size='x-large'>{icon}</span>",
+    "format": "{icon}",
     "tooltip": false,
     "format-muted": "<span size='x-large'>󰖁</span>",
     "on-click": "pamixer -t",
@@ -79,5 +79,9 @@
     "format-off": "<span size='x-large'>󰂲</span>",
     "on-click": "blueman-manager",
     "tooltip-format": "Status: {status}\nCharge: {device_battery_percentage}%"
+  },
+  "tray": {
+    "show-passive-items": true,
+    "spacing": 10
   }
 }

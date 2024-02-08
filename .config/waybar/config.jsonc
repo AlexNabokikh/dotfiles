@@ -14,8 +14,7 @@
   ],
   "modules-right": [
     "hyprland/language",
-    "network",
-    "bluetooth",
+    "tray",
     "pulseaudio",
     "battery"
   ]

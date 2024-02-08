@@ -40,13 +40,12 @@ tooltip {
   opacity: 0.5;
 }
 
-#clock,
 #language,
 #battery,
 #network,
 #pulseaudio,
 #bluetooth,
-#workspaces {
+#tray {
   padding: 3px 8px;
   color: #c2c5d4;
   margin: 0px;
