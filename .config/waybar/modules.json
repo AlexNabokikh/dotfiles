@@ -76,7 +76,7 @@
   },
   "bluetooth": {
     "format-connected": "<span size='large'>󰂯</span>",
-    "format": "<span size='large'>󰂲</span>",
+    "format": "",
     "on-click": "blueman-manager",
     "tooltip-format": "Status: {status}\nCharge: {device_battery_percentage}%"
   },
