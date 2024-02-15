@@ -5,9 +5,9 @@
     "all-outputs": true,
     "format": "{}",
     "format-icons": {
-      "urgent": "<span size='x-large'>󰇄</span>",
-      "active": "<span size='x-large'>󰇃</span>",
-      "default": "<span size='x-large'>󰇂</span>"
+      "urgent": "<span size='large'>󰇄</span>",
+      "active": "<span size='large'>󰇃</span>",
+      "default": "<span size='large'>󰇂</span>"
     },
     "persistent-workspaces": {
       "*": 5
@@ -15,7 +15,7 @@
   },
   "clock": {
     "on-click": "gnome-calendar",
-    "format": "{:%b%e  %H:%M}",
+    "format": "{:%b %e  %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>"
   },
   "hyprland/language": {
@@ -23,12 +23,12 @@
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "<span size='x-large'>󰖩</span>",
-    "format-ethernet": "<span size='x-large'>󰈀</span>",
+    "format-wifi": "<span size='large'>󰖩</span>",
+    "format-ethernet": "<span size='large'>󰈀</span>",
     "format-disconnected": "Disconnected",
-    "tooltip-format": "<span size='x-large'>󰈀</span> {ifname} via {gateway}",
-    "tooltip-format-wifi": "<span size='x-large'>󰖩</span> {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": "<span size='x-large'>󰈀</span> {ifname}\nIP: {ipaddr}\nUP: {bandwidthUpBits} DOWN: {bandwidthDownBits}",
+    "tooltip-format": "<span size='large'>󰈀</span> {ifname} via {gateway}",
+    "tooltip-format-wifi": "<span size='large'>󰖩</span> {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "<span size='large'>󰈀</span> {ifname}\nIP: {ipaddr}\nUP: {bandwidthUpBits} DOWN: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "on-click": "nm-connection-editor"
@@ -39,28 +39,28 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "<span size='x-large'>{icon}</span> {capacity}%",
-    "format-charging": "<span size='x-large'>󰂄</span> {capacity}%",
-    "format-plugged": "<span size='x-large'>󰂄</span> {capacity}%",
-    "format-alt": "{time} <span size='x-large'>{icon}</span>",
+    "format": "<span size='large'>{icon}</span> {capacity}%",
+    "format-charging": "<span size='large'>󰂄</span> {capacity}%",
+    "format-plugged": "<span size='large'>󰂄</span> {capacity}%",
+    "format-alt": "{time} <span size='large'>{icon}</span>",
     "format-icons": [
-      "<span size='x-large'>󰁹</span>",
-      "<span size='x-large'>󰁺</span>",
-      "<span size='x-large'>󰁻</span>",
-      "<span size='x-large'>󰁼</span>",
-      "<span size='x-large'>󰁽</span>",
-      "<span size='x-large'>󰁾</span>",
-      "<span size='x-large'>󰁿</span>",
-      "<span size='x-large'>󰂀</span>",
-      "<span size='x-large'>󰂁</span>",
-      "<span size='x-large'>󰂂</span>",
-      "<span size='x-large'>󰂃</span>"
+      "<span size='large'>󰁹</span>",
+      "<span size='large'>󰁺</span>",
+      "<span size='large'>󰁻</span>",
+      "<span size='large'>󰁼</span>",
+      "<span size='large'>󰁽</span>",
+      "<span size='large'>󰁾</span>",
+      "<span size='large'>󰁿</span>",
+      "<span size='large'>󰂀</span>",
+      "<span size='large'>󰂁</span>",
+      "<span size='large'>󰂂</span>",
+      "<span size='large'>󰂃</span>"
     ]
   },
   "pulseaudio": {
     "format": "{icon}",
     "tooltip": false,
-    "format-muted": "<span size='x-large'>󰖁</span>",
+    "format-muted": "<span size='large'>󰖁</span>",
     "on-click": "pamixer -t",
     "on-scroll-up": "pamixer -i 5",
     "on-scroll-down": "pamixer -d 5",
@@ -68,15 +68,15 @@
     "on-click-right": "pavucontrol",
     "format-icons": {
       "default": [
-        "<span size='x-large'>󰕿</span>",
-        "<span size='x-large'>󰖀</span>",
-        "<span size='x-large'>󰕾</span>"
+        "<span size='large'>󰕿</span>",
+        "<span size='large'>󰖀</span>",
+        "<span size='large'>󰕾</span>"
       ]
     }
   },
   "bluetooth": {
-    "format": "<span size='x-large'>󰂯</span>",
-    "format-off": "<span size='x-large'>󰂲</span>",
+    "format-connected": "<span size='large'>󰂯</span>",
+    "format": "<span size='large'>󰂲</span>",
     "on-click": "blueman-manager",
     "tooltip-format": "Status: {status}\nCharge: {device_battery_percentage}%"
   },
