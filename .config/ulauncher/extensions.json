@@ -13,13 +13,6 @@
         "last_commit": "c6c0febff9eae884e4a8bc97d057480436fb5c9b",
         "last_commit_time": "2020-07-22T18:41:36"
     },
-    "com.github.noam09.ulauncher-gnome-control-center": {
-        "id": "com.github.noam09.ulauncher-gnome-control-center",
-        "url": "https://github.com/noam09/ulauncher-gnome-control-center",
-        "updated_at": "2024-02-06T20:22:03.579460",
-        "last_commit": "ff8b0875ed5d78dcc1db5f638b201a460cc6d7f7",
-        "last_commit_time": "2020-10-06T08:36:54"
-    },
     "com.github.eckhoff42.ulauncher-favorite-directories": {
         "id": "com.github.eckhoff42.ulauncher-favorite-directories",
         "url": "https://github.com/Eckhoff42/Ulauncher-favorite-directories",
