@@ -1,60 +1,113 @@
 * {
-  border-radius: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-  font-size: 14px;
-  min-height: 0px;
-  background-color: transparent;
+  min-height: 0;
+  font-size: 100%;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  padding: 0px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0.5);
-  color: #c2c5d4;
+  background: rgba(0, 0, 0, 0);
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
 }
 
 tooltip {
   background: #1e1e2e;
-  border-radius: 10px;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: #cad3f5;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.modules-right {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0px solid #b4befe;
+  border-radius: 8px;
+}
+
+.modules-center {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0px solid #b4befe;
+  border-radius: 8px;
+}
+
+.modules-left {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0px solid #b4befe;
+  border-radius: 8px;
 }
 
 #workspaces button {
-  padding: 3px;
-  color: #c2c5d4;
-  background-color: transparent;
-  margin: 0 2px;
-}
-
-#workspaces button.focused,
-#workspaces button.urgent {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e1e1e1;
+  padding: 2px;
+  color: #6e6a86;
+  margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.4);
+  color: #c2c5d4;
+  border-radius: 3px 3px 3px 3px;
+}
+
+#workspaces button.focused {
+  color: #d8dee9;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  border-radius: 8px;
+}
+
+#workspaces button:hover {
+  color: #b7bdf8;
   border-radius: 3px;
 }
 
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
-#language,
+#clock,
 #battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#language,
 #network,
 #pulseaudio,
+#tray,
+#backlight,
 #bluetooth,
-#tray {
-  padding: 3px 8px;
-  color: #c2c5d4;
-  margin: 0px;
-}
-
 #workspaces {
-  margin-left: 3px;
+  color: #c2c5d4;
+  padding: 0px 10px;
+  border-radius: 8px;
 }
 
-#battery {
-  margin-right: 3px;
+#temperature.critical {
+  background-color: #ff0000;
+}
+
+@keyframes blink {
+  to {
+    color: #000000;
+  }
+}
+
+#taskbar button.active {
+  background-color: #7f849c;
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
