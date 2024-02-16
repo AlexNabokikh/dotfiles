@@ -1,5 +1,5 @@
 {
-  "include": "~/.config/waybar/modules",
+  "include": "~/.config/waybar/modules.jsonc",
   "layer": "top",
   "height": 32,
   "exclusive": true,
@@ -16,14 +16,15 @@
     "cpu",
     "temperature",
     "memory",
+    "backlight"
   ],
   "modules-center": [
-    "clock",
+    "clock"
   ],
   "modules-right": [
+    "hyprland/language",
     "tray",
     "bluetooth",
-    "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
     "battery"
