@@ -1,80 +1,77 @@
-* {
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
-  min-height: 0;
-  /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-  font-size: 100%;
-  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  padding: 0px;
-  margin-top: 1px;
-  margin-bottom: 1px;
+*{
+font-family: "JetBrainsMono Nerd Font";
+font-weight: bold;
+min-height: 0;
+/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+font-size: 100%;
+font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+padding: 0px;
+margin-top: 1px;
+margin-bottom: 1px;
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0);
-  /*border-bottom: 1px solid @unfocused_borders;*/
-  /*border-radius: 10px;*/
-  /*color: #cba6f7;*/
-  /*border: 1px solid #cba6f7;*/
+  background: rgba(0, 0, 0, 0)
 }
 
 window#waybar.hidden {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 tooltip {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(236, 236, 236, 0.8);
   border-radius: 10px;
-  /*border: 1px solid #cba6f7;*/
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(236, 236, 236, 0.8);
 }
 
 tooltip label {
-  color: #cba6f7;
-  margin-right: 2px;
-  margin-left: 2px;
+  color: #373737;
 }
 
 /*-----module groups----*/
 .modules-right {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(232, 236, 241, 0.8);
   border: 0px solid #b4befe;
   border-radius: 10px;
 }
 
 .modules-center {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(232, 236, 241, 0.8);
   border: 0px solid #b4befe;
   border-radius: 10px;
 }
 
 .modules-left {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(232, 236, 241, 0.8);
   border: 0px solid #b4befe;
   border-radius: 10px;
+
 }
 
 #workspaces button {
   padding: 2px;
-  color: #6e6a86;
+  color: #585b70;
   margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: #cba6f7;
+  color: #000000;
   border-radius: 15px 15px 15px 15px;
 }
 
 #workspaces button.focused {
-  color: #d8dee9;
+  color: #000000;
 }
 
 #workspaces button.urgent {
-  color: #11111b;
+  color: #000000;
   border-radius: 10px;
 }
 
 #workspaces button:hover {
-  color: #9ccfd8;
+  color: #000000;
   border-radius: 15px;
 }
 
@@ -116,12 +113,14 @@ tooltip label {
 #custom-weather.rainyNight,
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
-#custom-weather.default,
+#custom-weather.default, 
 #idle_inhibitor {
-  color: #cba7f7;
+  color: #000000;
   padding: 0px 10px;
   border-radius: 10px;
 }
+
+
 
 #temperature.critical {
   background-color: #ff0000;
@@ -134,7 +133,8 @@ tooltip label {
 }
 
 #taskbar button.active {
-  background-color: #7f849c;
+  background-color: #585b70;
+  color: #cdd6f4;
 }
 
 #battery.critical:not(.charging) {
