@@ -24,7 +24,7 @@ window#waybar.hidden {
 
 tooltip {
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
+  border-radius: 8px;
   /*border: 1px solid #cba6f7;*/
 }
 
@@ -38,19 +38,19 @@ tooltip label {
 .modules-right {
   background-color: rgba(0, 0, 0, 0.6);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .modules-center {
   background-color: rgba(0, 0, 0, 0.6);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .modules-left {
   background-color: rgba(0, 0, 0, 0.6);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #workspaces button {
@@ -60,8 +60,8 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: #cba6f7;
-  border-radius: 15px 15px 15px 15px;
+  color: #c2c5d4;
+  border-radius: 3px 3px 3px 3px;
 }
 
 #workspaces button.focused {
@@ -70,12 +70,12 @@ tooltip label {
 
 #workspaces button.urgent {
   color: #11111b;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #workspaces button:hover {
   color: #9ccfd8;
-  border-radius: 15px;
+  border-radius: 3px;
 }
 
 #clock,
@@ -118,9 +118,9 @@ tooltip label {
 #custom-weather.snowyIcyNight,
 #custom-weather.default,
 #idle_inhibitor {
-  color: #cba7f7;
+  color: #c2c5d4;
   padding: 0px 10px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #temperature.critical {
