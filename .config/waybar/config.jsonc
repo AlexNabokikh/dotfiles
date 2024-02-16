@@ -19,7 +19,8 @@
     "backlight"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "custom/notification"
   ],
   "modules-right": [
     "hyprland/language",
