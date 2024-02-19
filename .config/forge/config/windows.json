@@ -2,7 +2,7 @@
   "overrides": [
     {
       "wmClass": "org.gnome.Shell.Extensions",
-      "wmTitle": "Forge Settings",
+      "wmTitle": "Forge Settings    ",
       "mode": "float"
     },
     {
