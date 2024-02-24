@@ -6,7 +6,6 @@ return {
       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
       sources = {
         -- code actions
-        nls.builtins.code_actions.shellcheck,
         -- formatters
         nls.builtins.formatting.alejandra,
         nls.builtins.formatting.black.with({
@@ -33,7 +32,6 @@ return {
         nls.builtins.diagnostics.golangci_lint,
         nls.builtins.diagnostics.hadolint,
         nls.builtins.diagnostics.markdownlint.with({ extra_args = { "--disable", "MD013" } }),
-        nls.builtins.diagnostics.shellcheck,
       },
       on_attach = function(client, bufnr)
         -- Disable diagnostics for helm files

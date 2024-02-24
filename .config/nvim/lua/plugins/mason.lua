@@ -22,7 +22,6 @@ return {
         "prettier",
         "pyright",
         "ruff-lsp",
-        "shellcheck",
         "shfmt",
         "stylua",
         "terraform-ls",
