@@ -1,3 +1,3 @@
 # AlexNabokikh's dotfiles
 
-My configuration. Minimalist, but helps save a few thousand keystrokes a day.
+This repository abandoned in favor to Nix [nix-config](https://github.com/AlexNabokikh/nix-config)
